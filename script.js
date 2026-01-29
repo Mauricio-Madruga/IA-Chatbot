@@ -4,7 +4,7 @@ const messageInput = document.getElementById('messageInput');
 const sendButton = document.getElementById('sendButton');
 
 const FIXED_MODEL = 'anthropic.claude-3-haiku-20240307-v1:0';
-const USE_KB = false; // Cambiar a true cuando tengas el Knowledge Base ID
+const USE_KB = false; // Desactivar KB temporalmente hasta sincronizar
 
 let isLoading = false;
 

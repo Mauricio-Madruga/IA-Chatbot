@@ -16,7 +16,8 @@ BEDROCK_MODEL_ID=anthropic.claude-3-haiku-20240307-v1:0
 KNOWLEDGE_BASE_ID=tu_knowledge_base_id_aqui
 ```
 
-**IMPORTANTE:** 
+**IMPORTANTE:**
+
 - Obtén tus credenciales AWS desde la consola de AWS IAM
 - Asegúrate de que tu usuario IAM tenga permisos para Amazon Bedrock
 - Para usar Knowledge Base, obtén el ID desde la consola de Bedrock → Knowledge bases
@@ -49,6 +50,7 @@ Luego visita `http://localhost:8000`
 ## Características
 
 ### Optimizado para Producción
+
 - **Modelo fijo**: Claude 3 Haiku (más económico)
 - **Knowledge Base siempre activa**: Consulta automática a tus PDFs en S3
 - **Límite de tokens**: 1000 tokens máximo por respuesta (control de costos)
@@ -56,6 +58,7 @@ Luego visita `http://localhost:8000`
 - **Mensaje de bienvenida**: Guía al usuario desde el inicio
 
 ### Costos Estimados
+
 - ~$0.0002 USD por consulta
 - ~$6 USD/mes para 1000 consultas/día
 - Almacenamiento KB: ~$0.05/mes
