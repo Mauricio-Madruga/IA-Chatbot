@@ -3,8 +3,8 @@ const chatContainer = document.getElementById('chatContainer');
 const messageInput = document.getElementById('messageInput');
 const sendButton = document.getElementById('sendButton');
 
-const FIXED_MODEL = 'anthropic.claude-3-haiku-20240307-v1:0';
-const USE_KB = false; // Desactivar KB temporalmente hasta sincronizar
+const FIXED_MODEL = 'amazon.nova-lite-v1:0';
+const USE_KB = true; // Knowledge Base activado
 
 let isLoading = false;
 
@@ -18,7 +18,16 @@ function addMessage(content, role) {
     
     const contentDiv = document.createElement('div');
     contentDiv.className = 'message-content';
-    contentDiv.textContent = content;
+    
+    // Convertir texto a HTML con formato
+    const formattedContent = content
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/(\d+\.)\s/g, '<br>$1 ')
+        .replace(/^\s*-\s/gm, '<br>• ');
+    
+    contentDiv.innerHTML = formattedContent;
     
     messageDiv.appendChild(contentDiv);
     chatContainer.appendChild(messageDiv);
@@ -76,11 +85,7 @@ async function sendMessage() {
         removeLoadingIndicator();
         
         if (response.ok) {
-            let responseText = data.response;
-            if (data.sources && data.sources.length > 0) {
-                responseText += '\n\n📚 Fuentes:\n' + data.sources.map(s => s.uri).join('\n');
-            }
-            addMessage(responseText, 'assistant');
+            addMessage(data.response, 'assistant');
         } else {
             addMessage(`Error: ${data.error}`, 'assistant');
         }
@@ -107,5 +112,17 @@ messageInput.addEventListener('input', function() {
 });
 
 sendButton.addEventListener('click', sendMessage);
+
+// Botón para verificar estado de KB
+document.getElementById('kbStatus').addEventListener('click', async () => {
+    try {
+        const response = await fetch(`${API_URL}/kb-status`);
+        const data = await response.json();
+        const status = data.status === 'ready' ? '✅ Lista' : '⚠️ Vacía';
+        addMessage(`KB Status: ${status} (${data.documents_found} documentos)\n${data.message}`, 'assistant');
+    } catch (error) {
+        addMessage(`Error verificando KB: ${error.message}`, 'assistant');
+    }
+});
 
 showWelcomeMessage();

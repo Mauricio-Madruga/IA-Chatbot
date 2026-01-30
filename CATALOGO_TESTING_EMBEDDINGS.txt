@@ -1,0 +1,706 @@
+CELLMANIA - CATÁLOGO PARA TESTING DE EMBEDDINGS
+TIENDA DE CELULARES Y ACCESORIOS
+Documento de Prueba para Amazon Bedrock Knowledge Base con Nova Lite
+Fecha: Enero 2025
+
+ÍNDICE DE CASOS DE PRUEBA CUBIERTOS:
+- Búsquedas por precio (rangos bajo/medio/alto)
+- Comparaciones entre modelos
+- Búsquedas por especificaciones técnicas
+- Búsquedas semánticas por uso (gaming, fotografía, básico)
+- Promociones y ofertas
+- Diferentes marcas y gamas
+- Accesorios complementarios
+
+===================== SMARTPHONES GAMA ALTA PREMIUM =====================
+
+===========================================
+CÓDIGO: TEST-IP15-PRO-001
+TÍTULO: Apple iPhone 15 Pro Max 256GB Titanio Natural
+CATEGORÍA: Smartphones Premium Flagship
+MARCA: Apple
+LÍNEA DE PRODUCTO: iPhone 15 Pro Series
+RESUMEN: Flagship tope de gama de Apple con chip A17 Pro, cámara de 48MP con zoom óptico 5x, pantalla ProMotion 120Hz y construcción en titanio aeroespacial ligero.
+DESCRIPCIÓN: El iPhone 15 Pro Max es el smartphone más avanzado de Apple diseñado para profesionales y entusiastas tecnológicos. Incluye el revolucionario chip A17 Pro fabricado en proceso de 3 nanómetros para rendimiento extremo y eficiencia energética superior, sistema de cámara profesional con sensor principal de 48 megapíxeles y teleobjetivo con zoom óptico 5x para fotografía de nivel DSLR, pantalla Super Retina XDR de 6.7 pulgadas con ProMotion de 120Hz para fluidez absoluta, construcción premium en titanio aeroespacial que es más ligero y resistente que acero inoxidable, puerto USB-C con velocidades Thunderbolt para transferencias profesionales, botón de acción personalizable, y capacidades de grabación de video ProRes y Log para cineastas móviles. Ideal para fotógrafos profesionales, creadores de contenido de alto nivel, ejecutivos y usuarios que demandan lo mejor sin compromisos.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 256GB, RAM 8GB, Procesador A17 Pro 3nm, Cámara 48MP + teleobjetivo 5x zoom óptico, Pantalla 6.7" Super Retina XDR ProMotion 120Hz, Construcción titanio grado 5, USB-C Thunderbolt, Batería hasta 29 horas video, 5G, Face ID, Resistencia IP68, Ceramic Shield
+CAPACIDAD: 256GB almacenamiento interno
+MEMORIA RAM: 8GB
+TECNOLOGÍA RED: 5G avanzado
+COLOR: Titanio Natural
+PANTALLA: 6.7 pulgadas Super Retina XDR 120Hz
+CÁMARA: Sistema Pro 48MP con zoom 5x
+BATERÍA: Hasta 29 horas reproducción video
+PRECIO NORMAL: 1299.00 USD
+PRECIO OFERTA: 1199.00 USD
+DESCUENTO: 100.00 USD ahorro (8% descuento)
+ESTADO PROMOCIÓN: En oferta especial limitada
+USO RECOMENDADO: Fotografía profesional móvil, videografía ProRes, gaming extremo AAA, multitarea profesional pesada, edición foto video, productividad ejecutiva
+IDEAL PARA: Fotógrafos profesionales, videógrafos, creadores contenido profesional, ejecutivos, entusiastas tecnología, usuarios power extremos
+PALABRAS CLAVE: iPhone 15 Pro Max, Apple flagship, A17 Pro, titanio, cámara 48MP, zoom 5x, ProMotion 120Hz, USB-C Thunderbolt, ProRes video, fotografía profesional, smartphone premium, gama alta
+===========================================
+
+===========================================
+CÓDIGO: TEST-IP14-PRO-002
+TÍTULO: Apple iPhone 14 Pro 256GB Morado Oscuro Deep Purple
+CATEGORÍA: Smartphones Premium Flagship
+MARCA: Apple
+LÍNEA DE PRODUCTO: iPhone 14 Pro Series
+RESUMEN: iPhone Pro generación anterior con chip A16 Bionic, Dynamic Island revolucionaria, cámara 48MP y pantalla Always-On a precio reducido por nueva generación.
+DESCRIPCIÓN: El iPhone 14 Pro en morado oscuro ofrece tecnología Pro a mejor precio tras lanzamiento de iPhone 15. Incluye chip A16 Bionic extremadamente rápido, Dynamic Island revolucionaria que reemplazó el notch tradicional con área interactiva para notificaciones y actividades en vivo, cámara principal de 48 megapíxeles con Photonic Engine para fotos espectaculares en poca luz, pantalla Super Retina XDR con tecnología Always-On que muestra información sin tocar el teléfono, construcción premium en acero inoxidable quirúrgico, y color morado oscuro exclusivo de la serie Pro. Excelente opción para quienes quieren tecnología Pro sin pagar precio de última generación.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 256GB, RAM 6GB, Procesador A16 Bionic, Cámara 48MP Quad-pixel, Dynamic Island, Pantalla 6.1" Super Retina XDR Always-On 120Hz ProMotion, Acero inoxidable quirúrgico, USB-C, 5G, Face ID, IP68, Ceramic Shield
+CAPACIDAD: 256GB almacenamiento
+MEMORIA RAM: 6GB
+TECNOLOGÍA RED: 5G
+COLOR: Morado Oscuro Deep Purple
+PANTALLA: 6.1 pulgadas Always-On 120Hz
+CÁMARA: 48MP Quad-pixel sistema Pro
+BATERÍA: Hasta 23 horas video
+PRECIO NORMAL: 1099.00 USD
+PRECIO OFERTA: 899.00 USD
+DESCUENTO: 200.00 USD ahorro (18% descuento)
+ESTADO PROMOCIÓN: Super oferta por nueva generación
+USO RECOMENDADO: Fotografía avanzada, video 4K, gaming pesado, multitarea profesional, productividad, contenido social
+IDEAL PARA: Profesionales creativos, usuarios que buscan Pro a mejor precio, fotógrafos entusiastas, gamers
+PALABRAS CLAVE: iPhone 14 Pro, A16 Bionic, Dynamic Island, 48MP, Always-On, morado oscuro, oferta Pro, generación anterior, 120Hz, fotografía
+===========================================
+
+===========================================
+CÓDIGO: TEST-SAM-S24U-003
+TÍTULO: Samsung Galaxy S24 Ultra 512GB Titanio Gris
+CATEGORÍA: Smartphones Android Premium Flagship
+MARCA: Samsung
+LÍNEA DE PRODUCTO: Galaxy S Ultra Series
+RESUMEN: Flagship Android definitivo con S Pen integrado, zoom óptico 100x Space Zoom, pantalla QHD+ de 6.8 pulgadas y Galaxy AI inteligencia artificial integrada.
+DESCRIPCIÓN: El Samsung Galaxy S24 Ultra es el smartphone Android más completo y poderoso del mercado. Ofrece S Pen integrado para tomar notas y dibujar profesionalmente como en Galaxy Note, sistema de cámara cuádruple revolucionario con zoom óptico real de 10x y Space Zoom digital hasta 100x para capturar detalles imposibles, pantalla Dynamic AMOLED 2X masiva de 6.8 pulgadas en resolución QHD+ con brillo pico de 2600 nits visible bajo sol directo, procesador Snapdragon 8 Gen 3 optimizado para Galaxy con rendimiento extremo, Galaxy AI con funciones de inteligencia artificial como Circle to Search buscar rodeando con el dedo, traducción en vivo de llamadas, y edición fotográfica AI generativa, construcción premium en titanio grado armadura más resistente que aluminio, batería masiva de 5000mAh, y almacenamiento de 512GB para no preocuparse nunca por espacio. Perfecto para profesionales que necesitan reemplazar notebook y tablet con un solo dispositivo ultra capaz.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 512GB, RAM 12GB, Procesador Snapdragon 8 Gen 3 para Galaxy, Cámara cuádruple 200MP principal + teleobjetivo 10x + ultra wide, Pantalla 6.8" Dynamic AMOLED 2X QHD+ 120Hz adaptativo, S Pen integrado, Titanio grado armadura, USB-C 3.2, Batería 5000mAh carga 45W, 5G, Ultrasonido en pantalla, IP68, Gorilla Glass Armor
+CAPACIDAD: 512GB almacenamiento masivo
+MEMORIA RAM: 12GB
+TECNOLOGÍA RED: 5G avanzado
+COLOR: Titanio Gris
+PANTALLA: 6.8 pulgadas QHD+ 120Hz 2600 nits
+CÁMARA: Sistema cuádruple 200MP con zoom 100x
+BATERÍA: 5000mAh carga rápida 45W
+ACCESORIOS INCLUIDOS: S Pen integrado
+PRECIO NORMAL: 1399.00 USD
+PRECIO OFERTA: 1299.00 USD
+DESCUENTO: 100.00 USD ahorro (7% descuento)
+ESTADO PROMOCIÓN: Precio lanzamiento especial
+USO RECOMENDADO: Productividad profesional con S Pen, fotografía zoom extremo, gaming máximo, multitarea pesada, reemplazo notebook tablet, edición contenido, Galaxy AI
+IDEAL PARA: Profesionales ejecutivos, artistas digitales, fotógrafos zoom, creadores contenido, usuarios power Android, entusiastas Samsung ecosystem
+PALABRAS CLAVE: Galaxy S24 Ultra, Samsung flagship, S Pen, zoom 100x, 200MP, Galaxy AI, titanio, Snapdragon 8 Gen 3, QHD+, Android premium, productividad
+===========================================
+
+===================== SMARTPHONES GAMA MEDIA ALTA =====================
+
+===========================================
+CÓDIGO: TEST-IP13-004
+TÍTULO: Apple iPhone 13 128GB Azul Medianoche
+CATEGORÍA: Smartphones Apple Gama Media Alta
+MARCA: Apple
+LÍNEA DE PRODUCTO: iPhone 13 Series
+RESUMEN: iPhone generación sólida con chip A15 Bionic, cámara dual avanzada, conectividad 5G y ecosistema iOS completo a precio accesible tras nuevos lanzamientos.
+DESCRIPCIÓN: El iPhone 13 azul medianoche ofrece experiencia iPhone genuina con tecnología probada a excelente precio. Incluye chip A15 Bionic el mismo usado en iPhone 14 estándar todavía extremadamente rápido, sistema de cámara dual de 12MP con modo cinemático para videos con desenfoque profesional, Photonic Engine para fotos nocturnas mejoradas, pantalla Super Retina XDR brillante de 6.1 pulgadas, conectividad 5G para velocidades rápidas, batería optimizada todo el día, resistencia IP68 al agua, y acceso completo a App Store, iCloud, Apple Pay y ecosistema Apple. Mejor opción calidad precio en iPhones actuales para quien quiere iOS sin pagar flagship.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 128GB, RAM 6GB, Procesador A15 Bionic, Cámara dual 12MP con modo cinemático, Pantalla 6.1" Super Retina XDR, 5G, Resistencia IP68, Ceramic Shield, MagSafe, Face ID, Batería todo el día
+CAPACIDAD: 128GB almacenamiento
+MEMORIA RAM: 6GB
+TECNOLOGÍA RED: 5G
+COLOR: Azul Medianoche
+PANTALLA: 6.1 pulgadas Super Retina XDR
+CÁMARA: Dual 12MP modo cinemático
+BATERÍA: Todo el día uso normal
+PRECIO NORMAL: 649.00 USD
+PRECIO OFERTA: 549.00 USD
+DESCUENTO: 100.00 USD ahorro (15% descuento)
+ESTADO PROMOCIÓN: Precio especial generación anterior
+USO RECOMENDADO: Fotografía redes sociales, video contenido, gaming casual medio, productividad iOS, streaming, apps exigentes
+IDEAL PARA: Usuarios que quieren iPhone genuino accesible, estudiantes universitarios, profesionales jóvenes, primer iPhone premium
+PALABRAS CLAVE: iPhone 13, iOS, A15 Bionic, 5G, precio accesible, generación anterior, azul, modo cinemático, valor precio, ecosistema Apple
+===========================================
+
+===========================================
+CÓDIGO: TEST-SAM-A54-005
+TÍTULO: Samsung Galaxy A54 5G 256GB Negro Awesome
+CATEGORÍA: Smartphones Android Gama Media Alta
+MARCA: Samsung
+LÍNEA DE PRODUCTO: Galaxy A Series
+RESUMEN: Gama media premium con pantalla Super AMOLED 120Hz, cámara versátil de 50MP, batería 5000mAh y diseño tipo flagship a fracción del precio.
+DESCRIPCIÓN: El Samsung Galaxy A54 ofrece experiencia casi flagship a precio de gama media. Incluye hermosa pantalla Super AMOLED de 6.4 pulgadas con tasa de refresco de 120Hz suave como flagships, sistema de cámara triple versátil con sensor principal de 50 megapíxeles para fotos nítidas detalladas, procesador Exynos 1380 optimizado eficiente, batería grande de 5000mAh que dura fácilmente día y medio, 256GB de almacenamiento ampliable con microSD, resistencia IP67 al agua similar a modelos premium, OneUI de Samsung limpio y personalizable, conectividad 5G, y diseño elegante tipo Galaxy S en vidrio y aluminio color negro. Mejor opción para quienes quieren experiencia premium sin precio flagship.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 256GB expandible, RAM 8GB, Procesador Exynos 1380, Cámara triple 50MP principal + ultra wide + macro, Pantalla 6.4" Super AMOLED 120Hz FHD+, Batería 5000mAh carga 25W, 5G, Lector huellas en pantalla, IP67, Gorilla Glass 5, OneUI 5
+CAPACIDAD: 256GB expandible con microSD
+MEMORIA RAM: 8GB
+TECNOLOGÍA RED: 5G
+COLOR: Negro Awesome Black
+PANTALLA: 6.4 pulgadas Super AMOLED 120Hz
+CÁMARA: Triple 50MP versátil
+BATERÍA: 5000mAh larga duración
+ALMACENAMIENTO EXPANDIBLE: Sí microSD hasta 1TB
+PRECIO NORMAL: 449.00 USD
+PRECIO OFERTA: 379.00 USD
+DESCUENTO: 70.00 USD ahorro (16% descuento)
+ESTADO PROMOCIÓN: Oferta especial mes
+USO RECOMENDADO: Multimedia consumo, fotografía versátil, gaming medio, redes sociales, productividad, batería larga duración
+IDEAL PARA: Estudiantes, profesionales jóvenes, usuarios que buscan valor excepcional, quienes quieren Samsung accesible
+PALABRAS CLAVE: Galaxy A54, Samsung gama media, Super AMOLED 120Hz, 50MP, 5000mAh, 5G, valor precio, negro, batería larga, expandible
+===========================================
+
+===========================================
+CÓDIGO: TEST-XIA-N13P-006
+TÍTULO: Xiaomi Redmi Note 13 Pro 256GB Azul Océano
+CATEGORÍA: Smartphones Android Gama Media
+MARCA: Xiaomi
+LÍNEA DE PRODUCTO: Redmi Note Pro Series
+RESUMEN: Gama media completo con cámara de 200MP impresionante, carga rápida 67W, pantalla AMOLED 120Hz y precio competitivo imbatible.
+DESCRIPCIÓN: El Xiaomi Redmi Note 13 Pro ofrece especificaciones impresionantes que superan muchos flagships a precio muy accesible. Destaca su cámara principal de 200 megapíxeles masivos con tecnología pixel binning para fotos de calidad profesional incluso de noche, sistema de carga ultrarrápida de 67W que llena batería en 30 minutos, hermosa pantalla AMOLED de 6.67 pulgadas con 120Hz fluidez total, procesador Snapdragon 7s Gen 2 eficiente y capaz, batería de 5000mAh que dura todo el día fácilmente, 256GB de almacenamiento generoso, altavoces estéreo duales, y diseño premium en vidrio curvo color azul océano elegante. Xiaomi incluye además MIUI personalizado con muchas funciones extras. Mejor relación especificaciones precio del mercado en gama media.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 256GB, RAM 8GB, Procesador Snapdragon 7s Gen 2, Cámara triple 200MP principal OIS + ultra wide + macro, Pantalla 6.67" AMOLED 120Hz FHD+, Batería 5000mAh carga turbo 67W, 5G, Lector huellas lateral, IP54 resistencia, Gorilla Glass Victus, Altavoces estéreo, MIUI 14
+CAPACIDAD: 256GB almacenamiento
+MEMORIA RAM: 8GB
+TECNOLOGÍA RED: 5G
+COLOR: Azul Océano
+PANTALLA: 6.67 pulgadas AMOLED 120Hz
+CÁMARA: Triple 200MP impresionante
+BATERÍA: 5000mAh carga ultrarrápida 67W
+CARGA: 67W TurboCharge 100% en 40 minutos
+PRECIO NORMAL: 329.00 USD
+PRECIO OFERTA: 279.00 USD
+DESCUENTO: 50.00 USD ahorro (15% descuento)
+ESTADO PROMOCIÓN: Promoción lanzamiento
+USO RECOMENDADO: Fotografía alta resolución, carga rápida constante, multimedia, gaming medio, redes sociales, contenido video
+IDEAL PARA: Fotógrafos aficionados, usuarios que necesitan carga rápida, quienes buscan máximo valor, estudiantes, jóvenes profesionales
+PALABRAS CLAVE: Redmi Note 13 Pro, Xiaomi, 200MP, carga 67W, AMOLED 120Hz, 5G, valor imbatible, azul océano, fotografía, precio bajo
+===========================================
+
+===================== SMARTPHONES GAMA MEDIA =====================
+
+===========================================
+CÓDIGO: TEST-SAM-A34-007
+TÍTULO: Samsung Galaxy A34 5G 128GB Violeta Awesome
+CATEGORÍA: Smartphones Android Gama Media
+MARCA: Samsung
+LÍNEA DE PRODUCTO: Galaxy A Series
+RESUMEN: Smartphone equilibrado con pantalla Super AMOLED vibrante, conectividad 5G, batería duradera 5000mAh y diseño Galaxy elegante a precio muy accesible.
+DESCRIPCIÓN: El Samsung Galaxy A34 5G en violeta ofrece experiencia Samsung Galaxy completa sin romper el presupuesto. Incluye hermosa pantalla Super AMOLED de 6.6 pulgadas con colores vibrantes y brillo adecuado, procesador MediaTek Dimensity 1080 con conectividad 5G para velocidades rápidas, sistema de cámara triple de 48MP competente para fotos diarias de buena calidad, batería robusta de 5000mAh que dura todo el día sin problemas, OneUI de Samsung intuitivo y con actualizaciones garantizadas, almacenamiento de 128GB suficiente para usuario promedio, resistencia IP67 al agua y polvo, y diseño moderno en color violeta vibrante que destaca. Excelente opción para quien quiere teléfono confiable marca reconocida a precio justo.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 128GB expandible, RAM 6GB, Procesador MediaTek Dimensity 1080, Cámara triple 48MP principal + ultra wide + macro, Pantalla 6.6" Super AMOLED 90Hz FHD+, Batería 5000mAh carga 25W, 5G, Lector huellas en pantalla, IP67, OneUI 5, 4 años actualizaciones seguridad
+CAPACIDAD: 128GB expandible microSD
+MEMORIA RAM: 6GB
+TECNOLOGÍA RED: 5G
+COLOR: Violeta Awesome Violet
+PANTALLA: 6.6 pulgadas Super AMOLED 90Hz
+CÁMARA: Triple 48MP competente
+BATERÍA: 5000mAh todo el día
+ACTUALIZACIONES: 4 años seguridad garantizado Samsung
+PRECIO NORMAL: 329.00 USD
+PRECIO OFERTA: 279.00 USD
+DESCUENTO: 50.00 USD ahorro (15% descuento)
+ESTADO PROMOCIÓN: Oferta permanente
+USO RECOMENDADO: Uso diario general, redes sociales, fotografía casual, streaming video, navegación web, WhatsApp, llamadas
+IDEAL PARA: Usuarios promedio, padres familia, personas que quieren confiable sin complicaciones, primer smartphone 5G
+PALABRAS CLAVE: Galaxy A34, Samsung, Super AMOLED, 5G, violeta, 5000mAh, precio accesible, confiable, OneUI, actualizaciones
+===========================================
+
+===========================================
+CÓDIGO: TEST-XIA-N12-008
+TÍTULO: Xiaomi Redmi Note 12 128GB Gris Grafito
+CATEGORÍA: Smartphones Android Gama Media Económica
+MARCA: Xiaomi
+LÍNEA DE PRODUCTO: Redmi Note Series
+RESUMEN: Smartphone económico completo con pantalla AMOLED fluida, carga rápida 33W, cámara de 50MP y batería grande a precio muy competitivo.
+DESCRIPCIÓN: El Xiaomi Redmi Note 12 gris grafito es la opción perfecta para presupuesto ajustado sin sacrificar características importantes. Ofrece pantalla AMOLED de 6.67 pulgadas con tasa de refresco de 120Hz que normalmente se encuentra solo en gamas más altas, sistema de cámara triple con sensor principal de 50 megapíxeles suficiente para fotos redes sociales de buena calidad, carga rápida de 33W conveniente, batería de 5000mAh que dura todo el día completo, procesador Snapdragon 4 Gen 1 eficiente para tareas cotidianas fluidas, 128GB de almacenamiento adecuado, conectividad 4G confiable, y diseño delgado moderno en gris grafito sobrio. Xiaomi incluye MIUI con muchas funciones útiles extras. Mejor opción para presupuesto limitado que busca pantalla calidad y batería duradera.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 128GB expandible, RAM 4GB, Procesador Snapdragon 4 Gen 1, Cámara triple 50MP principal + depth + macro, Pantalla 6.67" AMOLED 120Hz FHD+, Batería 5000mAh carga 33W, 4G LTE, Lector huellas lateral, IP53 resistencia salpicaduras, MIUI 13
+CAPACIDAD: 128GB expandible
+MEMORIA RAM: 4GB
+TECNOLOGÍA RED: 4G LTE
+COLOR: Gris Grafito
+PANTALLA: 6.67 pulgadas AMOLED 120Hz
+CÁMARA: Triple 50MP adecuada
+BATERÍA: 5000mAh carga rápida 33W
+PRECIO NORMAL: 209.00 USD
+PRECIO OFERTA: 179.00 USD
+DESCUENTO: 30.00 USD ahorro (14% descuento)
+ESTADO PROMOCIÓN: Precio especial permanente
+USO RECOMENDADO: Uso cotidiano básico, redes sociales, fotografía casual, streaming, navegación, mensajería, llamadas
+IDEAL PARA: Presupuesto ajustado, estudiantes secundaria, primer smartphone propio, usuarios básicos, adultos mayores tecnológicos
+PALABRAS CLAVE: Redmi Note 12, Xiaomi económico, AMOLED 120Hz, presupuesto bajo, 50MP, 5000mAh, precio competitivo, valor
+===========================================
+
+===========================================
+CÓDIGO: TEST-MOT-G54-009
+TÍTULO: Motorola Moto G54 5G 256GB Verde Bosque
+CATEGORÍA: Smartphones Android Gama Media Económica
+MARCA: Motorola
+LÍNEA DE PRODUCTO: Moto G Series
+RESUMEN: Gama media accesible con 5G, pantalla IPS 120Hz fluida, batería masiva 6000mAh ultra duradera y Android puro stock sin bloatware.
+DESCRIPCIÓN: El Motorola Moto G54 5G verde bosque destaca por su batería excepcional y Android limpio. Ofrece batería masiva de 6000mAh que puede durar fácilmente dos días completos con uso normal o día completo con uso intensivo, conectividad 5G para futuro, pantalla IPS LCD grande de 6.5 pulgadas con 120Hz de fluidez, procesador MediaTek Dimensity 7020 eficiente, almacenamiento generoso de 256GB expandible, sistema de cámara dual de 50MP adecuado, Android puro stock sin modificaciones ni bloatware para experiencia limpia rápida y actualizaciones rápidas garantizadas, carga de 30W, y diseño resistente en verde bosque mate. Motorola es conocido por software limpio y excelente batería. Mejor opción para quien prioriza autonomía extrema y Android puro.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 256GB expandible, RAM 8GB, Procesador MediaTek Dimensity 7020, Cámara dual 50MP principal OIS + macro, Pantalla 6.5" IPS LCD 120Hz FHD+, Batería 6000mAh carga 30W, 5G, Lector huellas lateral, IP52 resistencia, Android 13 stock puro, 3 años actualizaciones
+CAPACIDAD: 256GB expandible microSD
+MEMORIA RAM: 8GB
+TECNOLOGÍA RED: 5G
+COLOR: Verde Bosque Midnight Green
+PANTALLA: 6.5 pulgadas IPS 120Hz
+CÁMARA: Dual 50MP OIS
+BATERÍA: 6000mAh ultra duradera dos días
+SISTEMA OPERATIVO: Android puro stock sin bloatware
+PRECIO NORMAL: 279.00 USD
+PRECIO OFERTA: 239.00 USD
+DESCUENTO: 40.00 USD ahorro (14% descuento)
+ESTADO PROMOCIÓN: Oferta vigente
+USO RECOMENDADO: Batería larga duración viajes, 5G futuro, Android puro limpio, uso general, multimedia, productividad básica
+IDEAL PARA: Usuarios que priorizan batería, viajeros frecuentes, quienes prefieren Android stock, presupuesto medio
+PALABRAS CLAVE: Moto G54, Motorola, batería 6000mAh, Android stock, 5G, 120Hz, dos días batería, verde, limpio, actualizaciones
+===========================================
+
+===================== SMARTPHONES GAMA ENTRADA =====================
+
+===========================================
+CÓDIGO: TEST-SAM-A14-010
+TÍTULO: Samsung Galaxy A14 4G 128GB Negro
+CATEGORÍA: Smartphones Android Gama Entrada
+MARCA: Samsung
+LÍNEA DE PRODUCTO: Galaxy A Entry Series
+RESUMEN: Smartphone entrada marca confiable con pantalla grande, batería duradera 5000mAh, OneUI de Samsung y precio muy accesible para presupuestos ajustados.
+DESCRIPCIÓN: El Samsung Galaxy A14 negro es la puerta de entrada al ecosistema Samsung Galaxy a precio muy bajo. Ofrece pantalla grande de 6.6 pulgadas LCD con resolución FHD+ para ver contenido cómodamente, procesador MediaTek Helio G80 suficiente para tareas básicas y redes sociales sin lag, batería robusta de 5000mAh que dura todo el día fácilmente, cámara triple de 50MP competente para fotos redes sociales aceptables, 128GB de almacenamiento expandible suficiente, OneUI de Samsung familiar e intuitivo, actualizaciones de seguridad garantizadas por Samsung, y construcción sólida en plástico negro discreto. Es smartphone completo funcional de marca reconocida mundial para quien tiene presupuesto muy limitado pero quiere calidad Samsung.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 128GB expandible, RAM 4GB, Procesador MediaTek Helio G80, Cámara triple 50MP principal + depth + macro, Pantalla 6.6" LCD FHD+ 90Hz, Batería 5000mAh carga 15W, 4G LTE, Lector huellas lateral, OneUI Core, 2 años actualizaciones seguridad
+CAPACIDAD: 128GB expandible microSD
+MEMORIA RAM: 4GB
+TECNOLOGÍA RED: 4G LTE
+COLOR: Negro Black
+PANTALLA: 6.6 pulgadas LCD FHD+ 90Hz
+CÁMARA: Triple 50MP básica
+BATERÍA: 5000mAh todo el día
+PRECIO NORMAL: 159.00 USD
+PRECIO OFERTA: 129.00 USD
+DESCUENTO: 30.00 USD ahorro (19% descuento)
+ESTADO PROMOCIÓN: Super precio entrada
+USO RECOMENDADO: Llamadas mensajes, WhatsApp, Facebook Instagram básico, fotos redes sociales, navegación web básica, YouTube
+IDEAL PARA: Presupuesto muy limitado, primer smartphone, adultos mayores, niños adolescentes, teléfono trabajo básico, respaldo
+PALABRAS CLAVE: Galaxy A14, Samsung económico, precio bajo, 5000mAh, entrada, 128GB, negro, confiable, marca reconocida
+===========================================
+
+===========================================
+CÓDIGO: TEST-XIA-A3-011
+TÍTULO: Xiaomi Redmi A3 64GB Azul Estelar
+CATEGORÍA: Smartphones Android Gama Entrada Económica
+MARCA: Xiaomi
+LÍNEA DE PRODUCTO: Redmi A Budget Series
+RESUMEN: Smartphone ultra económico básico con pantalla grande 6.71 pulgadas, batería 5000mAh confiable y precio bajísimo para presupuestos muy ajustados.
+DESCRIPCIÓN: El Xiaomi Redmi A3 azul estelar es el smartphone más económico funcional del catálogo para presupuestos extremadamente limitados. Ofrece pantalla grande de 6.71 pulgadas para ver contenido cómodamente a pesar del precio bajo, procesador MediaTek Helio G36 básico suficiente para WhatsApp Facebook Instagram ligero, batería grande de 5000mAh que dura todo el día completo, cámara dual de 8MP básica para fotos ocasionales redes sociales, 64GB de almacenamiento expandible adecuado para usuario básico, Android Go optimizado para hardware modesto que funciona fluido, y diseño simple en azul estelar atractivo. Es teléfono funcional completo para quien solo necesita lo esencial: llamadas, WhatsApp, redes sociales básicas, a precio mínimo.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 64GB expandible, RAM 3GB, Procesador MediaTek Helio G36, Cámara dual 8MP principal + depth, Pantalla 6.71" LCD HD+, Batería 5000mAh carga 10W, 4G LTE, Android 13 Go Edition, Lector huellas lateral
+CAPACIDAD: 64GB expandible microSD
+MEMORIA RAM: 3GB
+TECNOLOGÍA RED: 4G LTE
+COLOR: Azul Estelar
+PANTALLA: 6.71 pulgadas LCD HD+
+CÁMARA: Dual 8MP básica
+BATERÍA: 5000mAh duradera
+SISTEMA OPERATIVO: Android Go optimizado
+PRECIO NORMAL: 99.00 USD
+PRECIO OFERTA: 79.00 USD
+DESCUENTO: 20.00 USD ahorro (20% descuento)
+ESTADO PROMOCIÓN: Precio especial ultra económico
+USO RECOMENDADO: Llamadas SMS, WhatsApp mensajería, Facebook básico, fotos ocasionales, radio FM, comunicación esencial
+IDEAL PARA: Presupuesto extremadamente ajustado, primer celular niños, adultos mayores tecnología básica, trabajadores campo, teléfono emergencia
+PALABRAS CLAVE: Redmi A3, Xiaomi ultra barato, precio mínimo, entrada, básico, 5000mAh, 64GB, azul, económico, WhatsApp
+===========================================
+
+===========================================
+CÓDIGO: TEST-TCL-40SE-012
+TÍTULO: TCL 40 SE 128GB Gris Espacial
+CATEGORÍA: Smartphones Android Gama Entrada
+MARCA: TCL
+LÍNEA DE PRODUCTO: TCL 40 Series
+RESUMEN: Smartphone entrada con pantalla grande 6.75 pulgadas, batería 5000mAh, diseño moderno y precio competitivo de marca especialista en pantallas.
+DESCRIPCIÓN: El TCL 40 SE gris espacial ofrece buen valor de marca menos conocida pero especialista en tecnología de pantallas. TCL fabrica pantallas para muchas marcas famosas y aplica esa experiencia a sus smartphones. Incluye pantalla grande de 6.75 pulgadas con tecnología NXTVISION de TCL para mejor visualización y protección ojos, procesador MediaTek Helio G37 para tareas cotidianas, batería de 5000mAh confiable, cámara triple de 50MP mejor que competencia en este rango de precio, 128GB de almacenamiento suficiente, conectividad 4G, diseño moderno con patrón texturizado en gris espacial, y precio muy competitivo. Buena opción para quien busca alternativa a marcas principales con buena pantalla.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 128GB expandible, RAM 4GB, Procesador MediaTek Helio G37, Cámara triple 50MP principal + depth + macro, Pantalla 6.75" LCD HD+ NXTVISION, Batería 5000mAh carga 18W, 4G LTE, Lector huellas lateral, Android 13
+CAPACIDAD: 128GB expandible
+MEMORIA RAM: 4GB
+TECNOLOGÍA RED: 4G LTE
+COLOR: Gris Espacial Space Gray
+PANTALLA: 6.75 pulgadas NXTVISION tecnología TCL
+CÁMARA: Triple 50MP competitiva
+BATERÍA: 5000mAh
+PRECIO NORMAL: 149.00 USD
+PRECIO OFERTA: 119.00 USD
+DESCUENTO: 30.00 USD ahorro (20% descuento)
+ESTADO PROMOCIÓN: Oferta lanzamiento marca
+USO RECOMENDADO: Multimedia consumo video, redes sociales, fotografía básica, navegación, mensajería, productividad ligera
+IDEAL PARA: Usuarios que buscan alternativa marcas principales, quienes priorizan pantalla calidad, presupuesto limitado medio
+PALABRAS CLAVE: TCL 40 SE, pantalla NXTVISION, 50MP, 5000mAh, precio bajo, alternativa, gris espacial, 128GB, entrada
+===========================================
+
+===================== SMARTPHONES GAMING ESPECIALIZADOS =====================
+
+===========================================
+CÓDIGO: TEST-POCO-F5-013
+TÍTULO: Xiaomi POCO F5 256GB Negro Medianoche
+CATEGORÍA: Smartphones Gaming Gama Media Alta
+MARCA: Xiaomi
+LÍNEA DE PRODUCTO: POCO F Gaming Series
+RESUMEN: Smartphone gaming especializado con procesador Snapdragon 7+ Gen 2 potente, pantalla AMOLED 120Hz fluida, sistema enfriamiento LiquidCool y precio competitivo para gamers.
+DESCRIPCIÓN: El POCO F5 negro medianoche es smartphone diseñado específicamente para gaming móvil a precio accesible. Ofrece procesador Snapdragon 7+ Gen 2 fabricado en 4nm extremadamente potente para juegos AAA pesados como Genshin Impact, Call of Duty Mobile, PUBG en gráficos máximos, pantalla AMOLED de 6.67 pulgadas con 120Hz de tasa de refresco y muestreo táctil de 480Hz para respuesta instantánea en juegos competitivos, sistema de enfriamiento LiquidCool 2.0 con cámara de vapor grande para mantener temperaturas bajo control en sesiones largas, batería de 5000mAh con carga turbo de 67W para llenar rápido entre partidas, altavoces estéreo duales con Dolby Atmos para audio inmersivo, gatillos táctiles virtuales en software, y 256GB de almacenamiento para muchos juegos instalados. POCO optimiza MIUI para gaming con Game Turbo 6.0. Mejor smartphone gaming relación precio rendimiento.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 256GB UFS 3.1, RAM 8GB LPDDR5, Procesador Snapdragon 7+ Gen 2 4nm, Cámara triple 64MP OIS, Pantalla 6.67" AMOLED 120Hz muestreo 480Hz, Batería 5000mAh carga 67W turbo, 5G, Enfriamiento LiquidCool 2.0, Altavoces estéreo Dolby Atmos, Game Turbo 6.0
+CAPACIDAD: 256GB UFS 3.1 rápido
+MEMORIA RAM: 8GB LPDDR5
+TECNOLOGÍA RED: 5G
+COLOR: Negro Medianoche Night Black
+PANTALLA: 6.67 pulgadas AMOLED 120Hz gaming
+CÁMARA: Triple 64MP OIS
+BATERÍA: 5000mAh TurboCharge 67W
+ENFRIAMIENTO: LiquidCool 2.0 vapor chamber
+AUDIO: Altavoces estéreo Dolby Atmos
+PRECIO NORMAL: 399.00 USD
+PRECIO OFERTA: 329.00 USD
+DESCUENTO: 70.00 USD ahorro (18% descuento)
+ESTADO PROMOCIÓN: Oferta gaming especial
+USO RECOMENDADO: Gaming móvil competitivo pesado, Genshin Impact, Call of Duty Mobile, PUBG, streaming Twitch, multitarea pesada, contenido video
+IDEAL PARA: Gamers móviles serios, streamers, usuarios que juegan competitivamente, quienes buscan rendimiento gaming sin flagship
+PALABRAS CLAVE: POCO F5, gaming, Snapdragon 7+ Gen 2, 120Hz, LiquidCool, 67W, Genshin Impact, PUBG, negro, rendimiento precio
+===========================================
+
+===========================================
+CÓDIGO: TEST-ASUS-ROG6-014
+TÍTULO: ASUS ROG Phone 6 512GB Storm White
+CATEGORÍA: Smartphones Gaming Flagship Profesional
+MARCA: ASUS
+LÍNEA DE PRODUCTO: ROG Phone Gaming Series
+RESUMEN: Flagship gaming definitivo con Snapdragon 8+ Gen 1, pantalla AMOLED 165Hz ultra fluida, batería 6000mAh, gatillos AirTriggers físicos y ecosistema accesorios gaming.
+DESCRIPCIÓN: El ASUS ROG Phone 6 blanco tormenta es el smartphone gaming más completo y poderoso del mercado para gamers profesionales extremos. Ofrece procesador Snapdragon 8+ Gen 1 overclocked X-Mode hasta 3.2GHz el más potente en Android, pantalla Samsung AMOLED masiva de 6.78 pulgadas con increíble 165Hz de tasa de refresco y 720Hz de muestreo táctil para ventaja competitiva máxima, sistema de enfriamiento GameCool 6 revolucionario con cámara de vapor y ventilación activa, batería doble de 6000mAh que permite jugar horas sin parar, gatillos ultrasónicos AirTrigger 6 físicos en los bordes como controlador consola, puerto USB-C lateral para cargar mientras juegas horizontal, altavoces frontales estéreo masivos con amplificadores Cirrus Logic, luces RGB Aura sincronizadas personalizables, compatibilidad con accesorios ROG como ventilador externo Cooler 6, y almacenamiento masivo de 512GB. ASUS incluye Game Genie con herramientas streaming, macros, optimización por juego. Es teléfono gaming sin compromisos para profesionales y streamers.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 512GB UFS 3.1, RAM 16GB LPDDR5, Procesador Snapdragon 8+ Gen 1 overclockable, Cámara triple 50MP Sony IMX766, Pantalla 6.78" AMOLED Samsung 165Hz HDR10+ muestreo 720Hz, Batería 6000mAh doble carga 65W HyperCharge, 5G, GameCool 6 enfriamiento, AirTriggers 6 ultrasónicos, Altavoces frontales estéreo, Luces RGB Aura, ROG UI gaming
+CAPACIDAD: 512GB UFS 3.1 masivo
+MEMORIA RAM: 16GB LPDDR5 extremo
+TECNOLOGÍA RED: 5G
+COLOR: Storm White Blanco Tormenta
+PANTALLA: 6.78 pulgadas AMOLED 165Hz profesional gaming
+CÁMARA: Triple 50MP Sony
+BATERÍA: 6000mAh doble HyperCharge 65W
+ENFRIAMIENTO: GameCool 6 activo profesional
+CONTROLES: AirTriggers 6 ultrasónicos físicos gatillos
+AUDIO: Altavoces frontales estéreo amplificados
+PRECIO NORMAL: 999.00 USD
+PRECIO OFERTA: 849.00 USD
+DESCUENTO: 150.00 USD ahorro (15% descuento)
+ESTADO PROMOCIÓN: Precio especial gaming
+USO RECOMENDADO: Gaming profesional competitivo extremo, streaming Twitch YouTube Gaming, torneos móviles, esports, grabación gameplay, gaming maratónico
+IDEAL PARA: Gamers profesionales, streamers gaming, competidores esports móviles, entusiastas gaming hardcore, coleccionistas gaming
+PALABRAS CLAVE: ROG Phone 6, ASUS gaming, 165Hz, Snapdragon 8+ Gen 1, AirTriggers, 6000mAh, GameCool, gaming flagship, blanco, esports
+===========================================
+
+===================== SMARTPHONES FOTOGRAFÍA ESPECIALIZADOS =====================
+
+===========================================
+CÓDIGO: TEST-OPPO-R11-015
+TÍTULO: OPPO Reno 11 256GB Gris Roca
+CATEGORÍA: Smartphones Fotografía Retrato Gama Media Alta
+MARCA: OPPO
+LÍNEA DE PRODUCTO: Reno Photography Series
+RESUMEN: Smartphone especializado en fotografía de retratos con cámara frontal 32MP, sistema cámara trasera 50MP con IA belleza, pantalla AMOLED curva y diseño premium delgado.
+DESCRIPCIÓN: El OPPO Reno 11 gris roca está diseñado específicamente para selfies y retratos de calidad profesional. OPPO es marca líder en fotografía frontal y tecnología belleza IA. Ofrece cámara selfie de 32 megapíxeles con tecnología RGBW sensor más luz y algoritmos IA belleza avanzados para selfies perfectos naturales incluso en poca luz, sistema de cámara trasera dual de 50MP principal con OIS estabilización óptica más teleobjetivo retrato 2x para fotos tipo DSLR con desenfoque bokeh real no simulado, procesador MediaTek Dimensity 8200 eficiente y potente, hermosa pantalla AMOLED curva de 6.7 pulgadas con 120Hz fluidos, diseño ultra delgado solo 7.59mm y ligero 182 gramos, batería de 5000mAh con carga SUPERVOOC rápida de 67W, 256GB almacenamiento amplio, y construcción premium en vidrio curvado gris roca elegante. ColorOS de OPPO optimizado para fotografía. Ideal para influencers, creadores contenido social y amantes selfies.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 256GB, RAM 8GB, Procesador MediaTek Dimensity 8200, Cámara trasera dual 50MP OIS + 32MP teleobjetivo 2x retrato, Cámara frontal 32MP RGBW IA belleza, Pantalla 6.7" AMOLED curva 120Hz FHD+, Batería 5000mAh SUPERVOOC 67W, 5G, Diseño delgado 7.59mm 182g, ColorOS 14
+CAPACIDAD: 256GB almacenamiento
+MEMORIA RAM: 8GB
+TECNOLOGÍA RED: 5G
+COLOR: Gris Roca Rock Grey
+PANTALLA: 6.7 pulgadas AMOLED curva 120Hz
+CÁMARA FRONTAL: 32MP RGBW selfie profesional IA
+CÁMARA TRASERA: Dual 50MP OIS retrato
+BATERÍA: 5000mAh SUPERVOOC 67W
+GROSOR: 7.59mm ultra delgado 182g ligero
+PRECIO NORMAL: 479.00 USD
+PRECIO OFERTA: 399.00 USD
+DESCUENTO: 80.00 USD ahorro (17% descuento)
+ESTADO PROMOCIÓN: Oferta selfie especial
+USO RECOMENDADO: Selfies profesionales, retratos, Instagram TikTok contenido, fotografía belleza, video selfie, livestreaming, redes sociales creadores
+IDEAL PARA: Influencers Instagram TikTok, creadores contenido social, amantes selfies, fotógrafos retratos, bloggers belleza moda
+PALABRAS CLAVE: Reno 11, OPPO, selfie 32MP, retrato, IA belleza, 50MP OIS, delgado, gris roca, SUPERVOOC, influencers
+===========================================
+
+===================== CELULARES BÁSICOS TECLADO FÍSICO =====================
+
+===========================================
+CÓDIGO: TEST-NOKIA-225-016
+TÍTULO: Nokia 225 4G Celular Básico Negro
+CATEGORÍA: Celulares Básicos Teclado Físico
+MARCA: Nokia
+LÍNEA DE PRODUCTO: Nokia Classic Series
+RESUMEN: Celular básico clásico con teclado físico, batería ultra duradera, radio FM, linterna, 4G VoLTE para llamadas claras y construcción indestructible Nokia legendaria.
+DESCRIPCIÓN: El Nokia 225 negro es celular básico clásico perfecto para quien busca teléfono simple, duradero, confiable sin complicaciones de smartphone. Ofrece teclado físico grande táctil fácil de usar incluso sin mirar ideal para personas mayores o quienes prefieren teclas reales, batería legendaria que dura hasta 24 días en standby o 16 horas de llamadas continuas con una sola carga, conectividad 4G VoLTE para llamadas de alta definición cristalinas, radio FM sin necesidad de audífonos para entretenimiento, linterna LED potente integrada útil para emergencias, cámara VGA básica, construcción robusta Nokia legendaria prácticamente indestructible que sobrevive caídas, juegos clásicos Snake incluido, y sistema operativo Series 30+ simple sin apps innecesarias. Perfecto para personas mayores, trabajadores campo, teléfono emergencia, o quienes buscan desintoxicación digital manteniendo comunicación esencial.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 128MB expandible microSD, Teclado físico QWERTY, Pantalla 2.4" QVGA, Batería 1150mAh hasta 24 días standby, 4G VoLTE, Radio FM sin audífonos, Linterna LED, Cámara VGA, Dual SIM, Bluetooth, USB-C, Series 30+
+CAPACIDAD: 128MB + microSD hasta 32GB
+TECNOLOGÍA RED: 4G VoLTE llamadas HD
+COLOR: Negro Black
+PANTALLA: 2.4 pulgadas QVGA
+BATERÍA: 1150mAh ultra duradera 24 días
+TIPO: Teclado físico clásico
+PRECIO NORMAL: 49.00 USD
+PRECIO OFERTA: 39.00 USD
+DESCUENTO: 10.00 USD ahorro (20% descuento)
+ESTADO PROMOCIÓN: Precio especial básico
+USO RECOMENDADO: Llamadas SMS básicas, radio FM, linterna, comunicación simple sin internet, emergencias, desconexión digital
+IDEAL PARA: Personas mayores adultos, trabajadores campo construcción, teléfono emergencia respaldo, niños primer celular, desintoxicación smartphones
+PALABRAS CLAVE: Nokia 225, básico, teclado físico, batería larga 24 días, indestructible, 4G VoLTE, personas mayores, simple, negro, FM radio
+===========================================
+
+===================== ACCESORIOS COMPLEMENTARIOS =====================
+
+===========================================
+CÓDIGO: TEST-ACC-AIRP-001
+TÍTULO: Audífonos Inalámbricos Bluetooth AirPods Pro Estilo TWS
+CATEGORÍA: Accesorios Audio Inalámbricos
+MARCA: Genérica Compatible
+TIPO PRODUCTO: Audífonos True Wireless Stereo
+RESUMEN: Audífonos inalámbricos tipo AirPods con cancelación ruido activa, estuche carga inalámbrica, resistencia agua IPX4 y audio de alta calidad a precio accesible.
+DESCRIPCIÓN: Audífonos inalámbricos True Wireless Stereo diseño tipo AirPods Pro con características premium a fracción del precio original Apple. Ofrecen cancelación activa de ruido ANC para bloquear sonidos ambientales y enfocarse en música o llamadas, modo transparencia para escuchar entorno cuando necesario, drivers de alta fidelidad para audio balanceado con bajos profundos, estuche de carga compacto que proporciona hasta 24 horas totales de reproducción combinadas, carga inalámbrica Qi conveniente del estuche, resistencia al agua IPX4 para entrenamientos y lluvia ligera, controles táctiles en audífonos para reproducción y llamadas, micrófono integrado con reducción ruido para llamadas claras, conexión Bluetooth 5.3 estable hasta 10 metros, y compatibilidad universal con iPhone Android tablets. Excelente alternativa económica a AirPods originales con 90% de funciones a 20% del precio.
+ESPECIFICACIONES TÉCNICAS: Bluetooth 5.3, Cancelación ruido ANC activa, Modo transparencia, Drivers alta fidelidad, Batería audífonos 5 horas, Estuche carga 24 horas total, Carga inalámbrica Qi estuche, Resistencia IPX4 agua sudor, Controles táctiles, Micrófono reducción ruido, Alcance 10 metros, Compatibilidad universal
+BATERÍA AUDÍFONOS: 5 horas reproducción continua
+BATERÍA ESTUCHE: 24 horas totales con recargas
+CONECTIVIDAD: Bluetooth 5.3 estable
+RESISTENCIA: IPX4 agua sudor
+FUNCIONES: ANC, Transparencia, Táctil, Llamadas
+COMPATIBILIDAD: iPhone Android tablets universal
+PRECIO NORMAL: 49.00 USD
+PRECIO OFERTA: 29.00 USD
+DESCUENTO: 20.00 USD ahorro (41% descuento)
+ESTADO PROMOCIÓN: Super oferta accesorios
+USO RECOMENDADO: Música streaming, llamadas manos libres, ejercicio gym, trabajo oficina, viajes transporte, videoconferencias
+IDEAL PARA: Usuarios iPhone Android, deportistas, trabajadores remotos, estudiantes, viajeros, quien busca alternativa AirPods económica
+PALABRAS CLAVE: AirPods estilo, TWS, cancelación ruido ANC, inalámbrico Bluetooth, IPX4, carga inalámbrica, económico, alternativa, compatible
+===========================================
+
+===========================================
+CÓDIGO: TEST-ACC-CASE-002
+TÍTULO: Funda Protectora Silicona Líquida con MagSafe iPhone 15 Pro
+CATEGORÍA: Accesorios Fundas Protección
+MARCA: Genérica Compatible
+TIPO PRODUCTO: Funda Case Protector
+MODELO COMPATIBLE: iPhone 15 Pro y Pro Max
+RESUMEN: Funda premium silicona líquida suave al tacto con anillo magnético MagSafe integrado, bordes elevados protección cámara y pantalla, múltiples colores disponibles.
+DESCRIPCIÓN: Funda protectora de alta calidad diseñada específicamente para iPhone 15 Pro y Pro Max con acabado premium. Fabricada en silicona líquida de grado premium suave sedosa al tacto que se siente como original Apple, incluye anillo magnético MagSafe integrado compatible con cargadores inalámbricos MagSafe y accesorios magnéticos oficiales Apple, bordes elevados 1.2mm alrededor de pantalla y 1.5mm alrededor módulo cámara para protección contra rayones cuando se coloca boca abajo, interior forrado microfibra suave que no raya el iPhone, botones precisos táctiles con respuesta excelente, corte preciso milimétrico para puerto USB-C altavoces y botones, resistente a manchas huellas y fácil de limpiar, y disponible en 12 colores vibrantes elegantes incluyendo rosa, azul medianoche, verde bosque, negro, blanco. Protección completa con estilo sin añadir volumen excesivo.
+ESPECIFICACIONES TÉCNICAS: Material silicona líquida premium, MagSafe anillo magnético integrado, Bordes elevados protección pantalla cámara, Interior microfibra, Botones precisos, Anti manchas anti huellas, Compatibilidad iPhone 15 Pro y Pro Max, 12 colores disponibles
+MATERIAL: Silicona líquida premium suave
+COMPATIBILIDAD: iPhone 15 Pro, iPhone 15 Pro Max
+FUNCIONES: MagSafe magnético, Protección elevada, Anti manchas
+COLORES DISPONIBLES: 12 opciones rosa azul verde negro blanco
+PRECIO NORMAL: 19.00 USD
+PRECIO OFERTA: 12.00 USD
+DESCUENTO: 7.00 USD ahorro (37% descuento)
+ESTADO PROMOCIÓN: Oferta accesorios combinada
+USO RECOMENDADO: Protección diaria completa, uso con MagSafe, prevención rayones caídas, personalización estilo
+IDEAL PARA: Usuarios iPhone 15 Pro, quienes usan MagSafe, personas que cuidan su inversión, quienes buscan fundas premium accesibles
+PALABRAS CLAVE: funda iPhone 15 Pro, MagSafe, silicona líquida, protección, colores, premium, compatible, anti rayones
+===========================================
+
+===========================================
+CÓDIGO: TEST-ACC-PROT-003
+TÍTULO: Mica Cristal Templado Protector Pantalla con Kit Instalación
+CATEGORÍA: Accesorios Protección Pantalla
+MARCA: Genérica Universal
+TIPO PRODUCTO: Protector Pantalla Screen Protector
+RESUMEN: Protector de pantalla cristal templado 9H ultra resistente con kit de instalación fácil sin burbujas, oleofóbico anti huellas y compatibilidad múltiples modelos.
+DESCRIPCIÓN: Protector de pantalla profesional cristal templado de alta calidad para proteger inversión en smartphone contra rayones roturas pantalla. Fabricado en vidrio templado grado 9H extremadamente resistente que absorbe impactos y protege pantalla original de rayones llaves monedas caídas, tratamiento oleofóbico que repele aceites huellas dactilares manteniendo pantalla limpia, grosor ultra delgado solo 0.33mm que no afecta sensibilidad táctil ni calidad visual, bordes redondeados 2.5D que se integran perfectamente con curvatura pantalla, transparencia HD 99.9% que no afecta colores ni brillo, kit de instalación incluido con toallitas limpiadoras, pegatina quita polvo, guía alineación y espátula para instalación perfecta sin burbujas de aire profesional en casa. Compatible con fundas mayoría. Disponible para iPhone 15 14 13 12 11, Samsung Galaxy S24 S23 A54 A34, Xiaomi Redmi Note 13 12 y más modelos populares.
+ESPECIFICACIONES TÉCNICAS: Cristal templado 9H dureza, Grosor 0.33mm ultra delgado, Tratamiento oleofóbico anti huellas, Bordes 2.5D redondeados, Transparencia HD 99.9%, Kit instalación completo incluido, Compatibilidad múltiples modelos, Compatible con fundas
+MATERIAL: Cristal templado 9H premium
+GROSOR: 0.33mm ultra delgado
+TRATAMIENTO: Oleofóbico anti huellas anti manchas
+TRANSPARENCIA: 99.9% HD cristalino
+KIT INCLUIDO: Toallitas guía espátula limpiadores
+COMPATIBILIDAD: iPhone Samsung Xiaomi modelos populares
+PRECIO NORMAL: 12.00 USD
+PRECIO OFERTA: 7.00 USD
+DESCUENTO: 5.00 USD ahorro (42% descuento)
+ESTADO PROMOCIÓN: Oferta protección especial
+USO RECOMENDADO: Protección diaria pantalla, prevención rayones roturas, mantener valor reventa, protección inversión
+IDEAL PARA: Todos usuarios smartphones, personas descuidadas, quienes revenden teléfonos, protección niños, trabajadores rudo
+PALABRAS CLAVE: mica, cristal templado, 9H, protector pantalla, anti rayones, oleofóbico, kit instalación, iPhone Samsung Xiaomi, barato
+===========================================
+
+===========================================
+CÓDIGO: TEST-ACC-CHAR-004
+TÍTULO: Cargador Rápido 65W GaN USB-C Dual Puerto con Cable Incluido
+CATEGORÍA: Accesorios Carga Energía
+MARCA: Genérica Universal
+TIPO PRODUCTO: Cargador Pared Fast Charger
+RESUMEN: Cargador de pared compacto tecnología GaN 65W con dos puertos USB-C PD para cargar simultáneamente laptop teléfono, cable USB-C incluido, plegable portátil viajes.
+DESCRIPCIÓN: Cargador de pared ultra compacto con tecnología GaN Nitrato de Galio de nueva generación que permite más potencia en tamaño 50% más pequeño que cargadores tradicionales. Ofrece potencia máxima de 65W suficiente para cargar rápidamente laptops MacBook Air Pro, tablets iPad, y smartphones de todas las marcas, dos puertos USB-C Power Delivery que permiten cargar dos dispositivos simultáneamente inteligentemente distribuyendo potencia óptima para cada uno, protecciones múltiples contra sobrecalentamiento sobrecorriente sobrevoltaje cortocircuito, diseño compacto con clavijas plegables ideal para viajes maletas mochilas sin abultar, compatibilidad universal con iPhone 15 14 13 12 con USB-C, Samsung Galaxy, Google Pixel, iPad Pro Air, MacBook Air Pro, laptops USB-C, Nintendo Switch y más, cable USB-C a USB-C trenzado de 2 metros de alta calidad incluido en paquete. Reemplaza múltiples cargadores con uno solo universal compacto.
+ESPECIFICACIONES TÉCNICAS: Potencia máxima 65W, Tecnología GaN eficiente compacta, Dual puerto USB-C PD, Carga simultánea inteligente dos dispositivos, Protecciones múltiples seguridad, Clavijas plegables portátil, Compatibilidad universal USB-C, Cable 2m trenzado incluido, Certificación seguridad
+POTENCIA: 65W máximo total
+PUERTOS: 2x USB-C Power Delivery
+TECNOLOGÍA: GaN Nitrato Galio compacto eficiente
+CABLE INCLUIDO: USB-C a USB-C 2 metros trenzado
+COMPATIBILIDAD: iPhone 15+ Samsung iPad MacBook laptops Switch
+PROTECCIONES: Sobrecalentamiento sobrecorriente sobrevoltaje cortocircuito
+PRECIO NORMAL: 39.00 USD
+PRECIO OFERTA: 25.00 USD
+DESCUENTO: 14.00 USD ahorro (36% descuento)
+ESTADO PROMOCIÓN: Oferta carga rápida
+USO RECOMENDADO: Cargar laptop teléfono simultáneamente, viajes trabajo, reemplazo cargadores múltiples, carga rápida emergencia, oficina hogar
+IDEAL PARA: Viajeros frecuentes, profesionales remotos, estudiantes, usuarios múltiples dispositivos USB-C, minimalistas que buscan un solo cargador
+PALABRAS CLAVE: cargador 65W, GaN, USB-C PD, dual puerto, carga rápida, compacto, cable incluido, MacBook iPhone iPad, viajes
+===========================================
+
+===========================================
+CÓDIGO: TEST-ACC-BANK-005
+TÍTULO: Batería Externa Power Bank 20000mAh Carga Rápida 22.5W
+CATEGORÍA: Accesorios Energía Portátil
+MARCA: Genérica Universal
+TIPO PRODUCTO: Batería Externa Portable Charger
+RESUMEN: Batería portátil alta capacidad 20000mAh con carga rápida 22.5W, pantalla LED porcentaje exacto, triple puerto salida simultánea y diseño compacto premium.
+DESCRIPCIÓN: Batería externa de alta capacidad perfecta para viajes largos, trabajo campo, emergencias sin tomacorrientes disponibles. Ofrece capacidad masiva real de 20000mAh que puede recargar iPhone 15 aproximadamente 4 veces completas, Galaxy S24 unas 3.5 veces, o iPad una vez completa desde cero, carga rápida de salida 22.5W con tecnología PD y QC que llena teléfonos modernos en tiempo récord igual que cargador pared, pantalla LED digital que muestra porcentaje exacto de batería restante eliminando adivinanzas, triple puerto de salida 2x USB-A más 1x USB-C que permite cargar tres dispositivos simultáneamente perfectos para familia viaje grupo, puerto USB-C bidireccional que sirve tanto para cargar dispositivos como para recargar la misma power bank, protecciones inteligentes múltiples contra sobrecarga sobrecorriente temperatura, cuerpo aluminio premium resistente golpes con esquinas redondeadas, y peso razonable de 380 gramos considerando capacidad. Incluye cable USB-C y bolsa transporte. Accesorio esencial para viajeros trabajadores campo.
+ESPECIFICACIONES TÉCNICAS: Capacidad 20000mAh 74Wh, Carga rápida salida 22.5W PD QC, Pantalla LED porcentaje digital, Triple puerto salida 2xUSB-A 1xUSB-C, Puerto USB-C bidireccional entrada salida, Protecciones inteligentes múltiples, Cuerpo aluminio premium, Peso 380g, Cable y bolsa incluidos
+CAPACIDAD: 20000mAh 74Wh real
+CARGA RÁPIDA: 22.5W PD QC salida
+PANTALLA: LED digital porcentaje exacto
+PUERTOS: 3 salida simultánea 2xUSB-A 1xUSB-C
+RECARGAS APROXIMADAS: iPhone 4x, Samsung 3.5x, iPad 1x
+PESO: 380 gramos portátil
+PRECIO NORMAL: 45.00 USD
+PRECIO OFERTA: 29.00 USD
+DESCUENTO: 16.00 USD ahorro (36% descuento)
+ESTADO PROMOCIÓN: Mega oferta power bank
+USO RECOMENDADO: Viajes largos, trabajo campo sin electricidad, emergencias, camping, festivales, backup energía, días completos fuera
+IDEAL PARA: Viajeros aventureros, trabajadores campo, estudiantes campus grande, emergencias naturales, gamers móviles, festivales conciertos
+PALABRAS CLAVE: power bank, 20000mAh, carga rápida 22.5W, triple puerto, pantalla LED, batería externa, portátil, viajes, emergencia
+===========================================
+
+===================== CASOS ESPECIALES COMPARACIÓN =====================
+
+===========================================
+CÓDIGO: TEST-COMP-IP14-001
+TÍTULO: Apple iPhone 14 128GB Azul Medianoche
+CATEGORÍA: Smartphones Apple Generación 2022
+MARCA: Apple
+LÍNEA DE PRODUCTO: iPhone 14 Series Standard
+RESUMEN: iPhone 14 estándar con chip A15 Bionic mejorado, cámara principal avanzada, detección de accidentes SOS, y diseño refinado a precio reducido por nuevas generaciones.
+DESCRIPCIÓN: El iPhone 14 azul medianoche representa generación 2022 con innovaciones importantes ahora a mejor precio. Incluye chip A15 Bionic versión mejorada más eficiente que iPhone 13, cámara principal de 12MP significativamente mejorada con sensor más grande que captura 49% más luz para fotos nocturnas espectaculares, modo acción revolucionario para videos ultra estables sin gimbal perfecto para deportes acción contenido dinámico, detección de accidentes automática con llamada SOS emergencia que puede salvar vidas, Photonic Engine para fotografía computacional avanzada todas las cámaras, pantalla Super Retina XDR brillante de 6.1 pulgadas, conectividad 5G mejorada, batería optimizada todo el día, resistencia IP68, y diseño premium en aluminio aeroespacial azul medianoche. Diferencia vs iPhone 13: mejor cámara, modo acción, detección accidentes, batería mejorada. Excelente opción actual para iOS sin pagar última generación.
+ESPECIFICACIONES TÉCNICAS: Almacenamiento 128GB, RAM 6GB, Procesador A15 Bionic mejorado, Cámara dual 12MP sensor grande Photonic Engine, Modo acción video, Detección accidentes SOS, Pantalla 6.1" Super Retina XDR, 5G, IP68, Ceramic Shield, MagSafe, Face ID
+CAPACIDAD: 128GB almacenamiento
+MEMORIA RAM: 6GB
+TECNOLOGÍA RED: 5G
+COLOR: Azul Medianoche Midnight Blue
+PANTALLA: 6.1 pulgadas Super Retina XDR
+CÁMARA: Dual 12MP mejorada modo acción
+INNOVACIÓN PRINCIPAL: Detección accidentes automática SOS
+BATERÍA: Todo el día mejorada vs 13
+PRECIO NORMAL: 799.00 USD
+PRECIO OFERTA: 649.00 USD
+DESCUENTO: 150.00 USD ahorro (19% descuento)
+ESTADO PROMOCIÓN: Precio especial generación anterior
+COMPARACIÓN CLAVE: vs iPhone 13 mejor cámara batería accidentes, vs iPhone 15 no tiene Dynamic Island ni USB-C
+USO RECOMENDADO: Fotografía mejorada, video acción deportes, seguridad familiar detección accidentes, productividad iOS, multimedia
+IDEAL PARA: Usuarios que actualizan desde iPhone viejo, quienes quieren iPhone moderno accesible, familias priorizan seguridad
+PALABRAS CLAVE: iPhone 14, iOS, A15 Bionic mejorado, modo acción, detección accidentes, SOS, azul medianoche, generación 2022, valor
+===========================================
+
+===================== OFERTAS Y PROMOCIONES ESPECIALES =====================
+
+===========================================
+CÓDIGO: TEST-PROMO-BUNDLE-001
+TÍTULO: COMBO COMPLETO Samsung Galaxy A54 + Audífonos + Funda + Mica
+CATEGORÍA: Combos Promocionales Bundle
+MARCA: Samsung Bundle
+TIPO: Paquete Completo Todo Incluido
+RESUMEN: Paquete promocional completo con Samsung Galaxy A54 5G más audífonos Bluetooth TWS, funda protectora silicona, mica cristal templado y cargador rápido incluidos, ahorro total significativo.
+DESCRIPCIÓN: Paquete promocional diseñado para entregar experiencia completa lista para usar sin compras adicionales necesarias. Incluye Samsung Galaxy A54 5G 256GB 8RAM smartphone completo en color preferido, audífonos inalámbricos Bluetooth TWS con cancelación ruido y estuche carga para disfrutar música inmediatamente, funda protectora silicona premium que protege inversión desde día uno, mica protector pantalla cristal templado 9H preinstalada para evitar rayones, cargador rápido 25W original Samsung para carga óptima segura, cable USB-C de alta calidad, y auriculares de cable de respaldo adicionales. Todo empaquetado en caja regalo perfecta. Ahorro combinado vs comprar separado de más de 120 dólares. Perfecto para regalo completo o para quien quiere todo listo desde inicio sin complicaciones de buscar accesorios después.
+CONTENIDO PAQUETE:
+- 1x Samsung Galaxy A54 5G 256GB 8GB RAM (color a elegir)
+- 1x Audífonos Bluetooth TWS cancelación ruido con estuche
+- 1x Funda silicona premium color match
+- 1x Mica cristal templado 9H instalada
+- 1x Cargador rápido 25W original Samsung
+- 1x Cable USB-C premium
+- 1x Auriculares cable respaldo
+- Caja regalo premium presentación
+SMARTPHONE INCLUIDO: Galaxy A54 5G 256GB 8RAM
+ACCESORIOS: 6 items completos valor 120 USD
+COLORES DISPONIBLES: Negro, Azul, Violeta Galaxy A54
+AHORRO: 120.00 USD vs comprar separado (21% descuento total)
+PRECIO NORMAL SEPARADO: 569.00 USD
+PRECIO BUNDLE PROMOCIONAL: 449.00 USD
+DESCUENTO BUNDLE: 120.00 USD ahorro significativo
+ESTADO PROMOCIÓN: Super combo limitado hasta agotar stock
+USO RECOMENDADO: Regalo completo cumpleaños navidad, primer smartphone premium todo incluido, actualización total desde básico
+IDEAL PARA: Regalos especiales, personas que quieren todo listo, quienes buscan máximo valor, padres regalando hijos
+PALABRAS CLAVE: combo, bundle, Galaxy A54, todo incluido, audífonos funda mica, regalo completo, ahorro, promoción, paquete
+===========================================
+
+===========================================
+CÓDIGO: TEST-PROMO-TRAD-002
+TÍTULO: PROGRAMA TRADE-IN Cambia Tu Celular Viejo por Descuento en Nuevo
+CATEGORÍA: Programas Especiales Trade In
+TIPO: Programa Intercambio Descuento
+RESUMEN: Programa de intercambio donde recibes hasta 300 dólares de descuento en smartphone nuevo al entregar tu celular viejo usado en cualquier condición funcional.
+DESCRIPCIÓN: Programa trade-in que facilita actualización a nuevo smartphone dando valor real a tu equipo antiguo. Funciona así: trae tu celular viejo en cualquier condición siempre que encienda y pantalla no esté destrozada completamente, evaluamos modelo estado y te damos cotización instantánea de valor intercambio que puede ser desde 30 hasta 300 dólares dependiendo de modelo y condición, ese valor se descuenta inmediatamente del precio de cualquier smartphone nuevo que elijas en tienda, entregas tu viejo y sales con nuevo pagando solo diferencia. Aceptamos todas las marcas: iPhone desde 6s en adelante, Samsung desde Galaxy S8 A20, Xiaomi, Huawei, Motorola, LG y más. No importa si tiene batería gastada, rayones, cámara rota siempre que encienda tiene valor. Proceso toma solo 15 minutos. Transferimos tus datos gratis al nuevo. Valores ejemplo: iPhone 11 hasta 180 USD, Galaxy S21 hasta 200 USD, Redmi Note 11 hasta 80 USD, Motorola G9 hasta 50 USD. Consulta valor exacto de tu modelo en tienda o WhatsApp enviando foto. Vigente todo el año.
+MODELOS ACEPTADOS: iPhone 6s o superior, Samsung Galaxy S8 A20 o superior, Xiaomi Redmi Note 8 o superior, Motorola LG Huawei otros
+VALORES EJEMPLO TRADE IN:
+- iPhone 11 hasta 180 USD descuento
+- iPhone X hasta 150 USD descuento  
+- Galaxy S21 hasta 200 USD descuento
+- Galaxy A52 hasta 100 USD descuento
+- Redmi Note 11 hasta 80 USD descuento
+- Moto G9 hasta 50 USD descuento
+CONDICIONES: Debe encender, pantalla no completamente rota, iCloud apagado iPhone
+BENEFICIOS: Transferencia datos gratis, evaluación inmediata 15 minutos, descuento instantáneo
+RESTRICCIONES: No reportados robados, debe tener documentos propiedad originales
+VIGENCIA: Programa permanente todo el año
+PROCESO: 1-Traer celular viejo, 2-Evaluación 15min, 3-Cotización valor, 4-Elegir nuevo, 5-Pagar diferencia
+USO RECOMENDADO: Actualizar de viejo a nuevo sin gastar completo, aprovechar valor equipo antiguo, ecológico reciclar responsable
+IDEAL PARA: Usuarios con celulares viejos guardados, quienes actualizan frecuentemente, presupuesto ajustado, consientes ecología
+PALABRAS CLAVE: trade-in, intercambio, celular viejo, descuento, iPhone usado, Samsung usado, Xiaomi usado, programa cambio, actualización
+===========================================
+
+===================== INFORMACIÓN ADICIONAL ÚTIL =====================
+
+MÉTODOS DE PAGO ACEPTADOS:
+- Efectivo con descuento adicional 3%
+- Tarjetas débito crédito Visa Mastercard Discover American Express
+- Transferencias bancarias
+- PayPal
+- Cuotas sin intereses hasta 12 meses con tarjetas participantes
+- Financiamiento especial hasta 18 meses ciertos modelos
+
+GARANTÍA:
+- 1 año garantía internacional marca fabricante todos smartphones
+- 30 días cambio satisfacción garantizada si no convence
+- Soporte técnico gratis primer año
+- Reparaciones garantía sin costo labor repuestos
+
+ENVÍOS:
+- Gratis compras sobre 100 USD ciudad principal
+- Envío expreso nacional 24-48 horas desde 5 USD
+- Retiro en tienda gratis sin costo
+- Empaque discreto seguro asegurado
+
+SERVICIO CLIENTE:
+- WhatsApp 24/7 consultas: +593 96 834 9704
+- Teléfono: 02-211-0709
+- Email: ventas@celularesecuador.com
+- Chat web: www.celularesecuador.com
+- Ubicación: Quito Ecuador
+
+HORARIOS TIENDA FÍSICA:
+- Lunes a Viernes: 9:00 AM - 7:00 PM
+- Sábados: 9:00 AM - 6:00 PM  
+- Domingos: 10:00 AM - 3:00 PM
+- Feriados: 10:00 AM - 2:00 PM
+
+SERVICIOS ADICIONALES:
+- Setup inicial gratis configuración smartphone
+- Transferencia datos celular viejo a nuevo gratis
+- Instalación mica protector gratis con compra
+- Asesoría personalizada elección modelo expertos
+- Respaldo datos nube gratis primer mes
+
+===================== FIN DEL CATÁLOGO =====================
+
+TOTAL PRODUCTOS EN CATÁLOGO: 30 smartphones + 5 accesorios + 2 programas especiales
+RANGO PRECIOS: Desde 79 USD hasta 1299 USD
+MARCAS: Apple, Samsung, Xiaomi, Motorola, TCL, ASUS, OPPO, Nokia
+CATEGORÍAS: Flagship, Gaming, Fotografía, Gama Alta, Media, Entrada, Básicos, Accesorios
+
+Este catálogo ha sido optimizado para búsqueda semántica con embeddings considerando:
+✓ Descripciones ricas en contexto natural
+✓ Sinónimos y términos relacionados incluidos
+✓ Casos de uso específicos mencionados
+✓ Información comparativa entre modelos
+✓ Preguntas frecuentes anticipadas
+✓ Formato estructurado consistente
+✓ Palabras clave estratégicas
+✓ Información técnica completa
+✓ Secciones autocontenidas comprensibles independientemente

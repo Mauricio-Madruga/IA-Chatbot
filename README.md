@@ -49,6 +49,23 @@ Luego visita `http://localhost:8000`
 
 ## Características
 
+### Sistema Inteligente de Consultas
+
+- **Clasificación automática**: Detecta el tipo de pregunta (precio, comparación, recomendación, etc.)
+- **Recuperación optimizada**: Ajusta cantidad de chunks según tipo de consulta
+- **Prompts especializados**: Genera instrucciones específicas para cada tipo de pregunta
+- **Validación de precios**: Verifica que precios mencionados existan en el contexto
+- **Re-ranking inteligente**: Prioriza chunks con información crítica (precios, specs)
+
+### Tipos de Consultas Soportadas
+
+1. **Precios específicos**: "cuanto cuesta el iPhone 14 Pro?"
+2. **Comparaciones**: "cuál es más barato, iPhone 13 o Samsung A54?"
+3. **Superlativos**: "cuál es el teléfono más barato?", "mejor cámara"
+4. **Especificaciones**: "cuánta RAM tiene?", "duración de batería?"
+5. **Recomendaciones**: "qué me recomiendas para gaming?"
+6. **Accesorios**: "fundas para iPhone 15?", "cargadores rápidos?"
+
 ### Optimizado para Producción
 
 - **Modelo fijo**: Claude 3 Haiku (más económico)

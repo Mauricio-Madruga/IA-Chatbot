@@ -1,0 +1,171 @@
+PROMPT UNIVERSAL: OPTIMIZAR CUALQUIER DOCUMENTO PARA AMAZON BEDROCK KNOWLEDGE BASE
+====================================================================================
+
+Copia este prompt y pega tu contenido al final:
+
+====================================================================================
+
+Eres un experto en preparar documentos para sistemas de búsqueda semántica con embeddings (Amazon Bedrock Knowledge Base con OpenSearch y Titan Embeddings v2).
+
+TAREA: Reformatea este documento para maximizar la recuperación de información en búsquedas semánticas.
+
+PRINCIPIOS CLAVE:
+
+1. ESTRUCTURA CLARA
+   - Usa separadores visuales entre secciones (===)
+   - Etiquetas descriptivas para cada campo (TÍTULO:, DESCRIPCIÓN:, etc.)
+   - Una idea/concepto por sección
+   - Jerarquía clara (títulos, subtítulos, contenido)
+
+2. LENGUAJE NATURAL Y RICO EN CONTEXTO
+   - Escribe en oraciones completas, no abreviaturas
+   - Incluye sinónimos y términos relacionados
+   - Agrega contexto explicativo
+   - Usa palabras clave que usuarios buscarían
+   - Evita jerga técnica sin explicación
+
+3. FORMATO ÓPTIMO PARA EMBEDDINGS
+   - Cada sección debe ser autocontenida (entendible sin contexto previo)
+   - Repite información clave en cada sección si es necesario
+   - Usa descripciones de 2-4 líneas (ni muy cortas ni muy largas)
+   - Incluye ejemplos cuando sea relevante
+
+4. REGLAS TÉCNICAS
+   - NO uses caracteres especiales raros (°, ™, ®, •)
+   - Usa puntos para decimales (19.99 no 19,99)
+   - Fechas en formato: DD/MM/AAAA o Mes DD, AAAA
+   - Números sin símbolos de moneda en el texto (usa "USD" al final)
+   - Sin tablas complejas (conviértelas a listas)
+   - Sin múltiples columnas
+
+5. OPTIMIZACIÓN DE BÚSQUEDA
+   - Piensa: "¿Qué preguntaría un usuario sobre esto?"
+   - Incluye esas preguntas/respuestas en las descripciones
+   - Usa términos comunes, no solo técnicos
+   - Agrega contexto de uso o aplicación
+
+FORMATO GENERAL RECOMENDADO:
+
+===========================================
+TÍTULO: [Título claro y descriptivo]
+CATEGORÍA: [Categoría o tipo]
+RESUMEN: [Resumen de 1-2 líneas con palabras clave]
+DESCRIPCIÓN: [Descripción detallada de 2-4 líneas con contexto completo]
+DETALLES: [Información específica relevante]
+INFORMACIÓN ADICIONAL: [Datos complementarios]
+PALABRAS CLAVE: [Términos relacionados para búsqueda]
+===========================================
+
+EJEMPLOS DE TRANSFORMACIÓN:
+
+❌ MALO (formato compacto, sin contexto):
+"Prod: iPhone 11 128GB $409"
+
+✅ BUENO (formato expandido, rico en contexto):
+===========================================
+TÍTULO: Apple iPhone 11 128GB
+CATEGORÍA: Smartphones Premium
+RESUMEN: Smartphone de gama alta con excelente cámara y rendimiento superior
+DESCRIPCIÓN: El iPhone 11 es un smartphone premium de Apple ideal para usuarios que buscan calidad fotográfica profesional, rendimiento fluido para gaming y aplicaciones exigentes, y un ecosistema integrado con otros dispositivos Apple. Perfecto para profesionales, creadores de contenido y usuarios avanzados.
+ESPECIFICACIONES: 128GB almacenamiento, 4GB RAM, Chip A13 Bionic, Cámara dual 12MP, Resistente al agua IP68
+PRECIO: 409.00 USD (precio de oferta)
+PALABRAS CLAVE: iPhone, Apple, smartphone premium, cámara profesional, gaming, iOS, resistente agua
+===========================================
+
+❌ MALO (tabla compacta):
+| Servicio | Precio | Duración |
+| Plan A   | $50    | 30 días  |
+
+✅ BUENO (formato expandido):
+===========================================
+SERVICIO: Plan A - Servicio Mensual
+CATEGORÍA: Planes de Suscripción
+DESCRIPCIÓN: Plan mensual básico ideal para usuarios individuales que buscan acceso completo a todas las funcionalidades principales del servicio durante 30 días. Perfecto para quienes desean probar el servicio sin compromisos a largo plazo.
+PRECIO: 50.00 USD por mes
+DURACIÓN: 30 días
+INCLUYE: Acceso completo, Soporte técnico, Actualizaciones automáticas
+IDEAL PARA: Usuarios individuales, Pruebas iniciales, Uso personal
+===========================================
+
+INSTRUCCIONES:
+1. Lee todo el documento
+2. Identifica las secciones/temas principales
+3. Reformatea cada sección siguiendo los principios arriba
+4. Mantén TODA la información original, solo mejora el formato
+5. Agrega contexto y palabras clave donde sea útil
+6. Asegúrate que cada sección sea autocontenida
+
+DOCUMENTO A OPTIMIZAR:
+
+[PEGA AQUÍ TU CONTENIDO - PDF, TEXTO, TABLA, ETC.]
+
+====================================================================================
+
+PROMPT CORTO (VERSIÓN RÁPIDA):
+====================================================================================
+
+Reformatea este documento para búsqueda semántica (Amazon Bedrock Knowledge Base):
+
+REGLAS:
+- Usa separadores === entre secciones
+- Etiquetas claras (TÍTULO:, DESCRIPCIÓN:, etc.)
+- Lenguaje natural, no abreviaturas
+- Descripciones de 2-4 líneas con contexto
+- Incluye sinónimos y palabras clave
+- Sin caracteres especiales (°, ™, ®)
+- Puntos para decimales (19.99)
+- Cada sección autocontenida
+
+FORMATO:
+===========================================
+TÍTULO: [título descriptivo]
+CATEGORÍA: [categoría]
+RESUMEN: [1-2 líneas con palabras clave]
+DESCRIPCIÓN: [2-4 líneas con contexto completo]
+DETALLES: [información específica]
+PALABRAS CLAVE: [términos relacionados]
+===========================================
+
+Documento:
+[PEGA AQUÍ]
+
+====================================================================================
+
+PROMPT ULTRA-CORTO (PARA LÍMITES DE TOKENS):
+====================================================================================
+
+Reformatea para búsqueda semántica:
+- Separadores === entre secciones
+- Etiquetas: TÍTULO, DESCRIPCIÓN, DETALLES
+- Lenguaje natural completo
+- 2-4 líneas por descripción
+- Incluye contexto y palabras clave
+- Sin abreviaturas ni símbolos raros
+
+[PEGA DOCUMENTO]
+
+====================================================================================
+
+DESPUÉS DE OBTENER EL RESULTADO:
+1. Copia el texto reformateado
+2. Pégalo en Word o Google Docs
+3. Guarda como PDF (Archivo → Guardar como → PDF)
+4. Sube a S3
+5. Sincroniza Knowledge Base
+6. Espera 15-20 minutos
+
+====================================================================================
+
+TIPOS DE DOCUMENTOS SOPORTADOS:
+- Catálogos de productos
+- Manuales técnicos
+- Documentación de servicios
+- Políticas y procedimientos
+- FAQs y preguntas frecuentes
+- Guías de usuario
+- Especificaciones técnicas
+- Listas de precios
+- Información corporativa
+- Cualquier documento de texto
+
+====================================================================================

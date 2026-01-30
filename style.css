@@ -13,6 +13,20 @@ body {
     align-items: center;
 }
 
+.kb-status-btn {
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.kb-status-btn:hover {
+    background: #e0e0e0;
+}
+
 .container {
     width: 90%;
     max-width: 900px;
@@ -51,6 +65,25 @@ body {
     overflow-y: auto;
     padding: 24px;
     background: #f8fafc;
+}
+
+.message-content {
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.message-content strong {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.message-content em {
+    font-style: italic;
+    color: #7f8c8d;
+}
+
+.message-content br {
+    margin-bottom: 8px;
 }
 
 .message {

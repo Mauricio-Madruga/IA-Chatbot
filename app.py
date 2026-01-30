@@ -4,6 +4,8 @@ import boto3
 import json
 import os
 from dotenv import load_dotenv
+from config import SYSTEM_PROMPTS, MODEL_CONFIG, FALLBACK_RESPONSES
+from query_handler import QueryHandler
 
 load_dotenv()
 
@@ -44,91 +46,148 @@ def chat():
             invoke_model_id = f'arn:aws:bedrock:{region}::foundation-model/{model_id}'
         
         if use_kb:
-            print("[KB] Consultando Knowledge Base...")
+            print("[KB] Usando retrieve manual + invoke...")
             kb_id = os.getenv('KNOWLEDGE_BASE_ID')
             if not kb_id:
                 return jsonify({'error': 'KNOWLEDGE_BASE_ID no configurado'}), 400
             
-            # Recuperar documentos manualmente
+            # CLASIFICAR consulta para optimizar recuperación
+            classification = QueryHandler.classify_query(message)
+            print(f"[QUERY] Tipo: {classification['type']}, Precio: {classification['is_price_query']}, Keywords: {classification['keywords']}")
+            
+            # Obtener configuración de recuperación optimizada
+            retrieval_config = QueryHandler.get_retrieval_config(classification)
+            print(f"[QUERY] Recuperando {retrieval_config['numberOfResults']} chunks")
+            
+            # 1. RETRIEVE: Buscar documentos relevantes con configuración optimizada
             retrieve_response = bedrock_agent.retrieve(
                 knowledgeBaseId=kb_id,
-                retrievalQuery={'text': message}
-            )
-            
-            # Construir contexto desde los documentos recuperados
-            context = ""
-            sources = []
-            results = retrieve_response.get('retrievalResults', [])
-            
-            print(f"[KB] Documentos recuperados: {len(results)}")
-            
-            for idx, result in enumerate(results[:3]):
-                content_text = result.get('content', {}).get('text', '')
-                score = result.get('score', 0)
-                print(f"[KB] Documento {idx+1} - Score: {score:.3f} - Longitud: {len(content_text)} chars")
-                print(f"[KB] Preview: {content_text[:200]}...")
-                
-                context += content_text + "\n\n"
-                if 'location' in result and 's3Location' in result['location']:
-                    sources.append({'uri': result['location']['s3Location']['uri']})
-            
-            if not context.strip():
-                print("[KB] ADVERTENCIA: No se recuperó contexto de la KB")
-                return jsonify({
-                    'response': 'La base de conocimiento está vacía. Ve a AWS Console > Bedrock > Knowledge bases > tu_KB_ID > Data sources > Sync para cargar documentos.',
-                    'sources': [],
-                    'kb_empty': True
-                })
-            
-            # Invocar Nova directamente con el contexto
-            prompt = f"Usa SOLO la siguiente información para responder. NO uses conocimiento general.\n\nInformación disponible:\n{context}\n\nPregunta: {message}\n\nRespuesta basada SOLO en la información anterior:"
-            
-            body = json.dumps({
-                "messages": [{"role": "user", "content": [{"text": prompt}]}],
-                "inferenceConfig": {
-                    "max_new_tokens": 1000,
-                    "temperature": 0.7
+                retrievalQuery={'text': message},
+                retrievalConfiguration={
+                    'vectorSearchConfiguration': {
+                        'numberOfResults': retrieval_config['numberOfResults']
+                    }
                 }
-            })
-            
-            response = bedrock.invoke_model(
-                modelId=invoke_model_id,
-                body=body
             )
             
-            response_body = json.loads(response['body'].read())
-            reply = response_body['output']['message']['content'][0]['text']
+            chunks = retrieve_response.get('retrievalResults', [])
+            print(f"[KB] Encontrados {len(chunks)} chunks")
             
-            print(f"[KB] Fuentes encontradas: {len(sources)}")
+            # PRIORIZAR chunks con producto exacto + precio
+            product_keywords = message.lower().split()
+            priority_chunks = []
+            other_chunks = []
+            
+            for chunk in chunks:
+                content = chunk['content']['text']
+                # Si tiene PRECIO y menciona palabras clave de la pregunta
+                has_price = 'PRECIO' in content
+                has_keywords = any(kw in content.lower() for kw in product_keywords if len(kw) > 3)
+                
+                if has_price and has_keywords:
+                    priority_chunks.append(chunk)
+                else:
+                    other_chunks.append(chunk)
+            
+            # Reordenar: primero chunks con precio relevante
+            chunks = priority_chunks + other_chunks
+            print(f"[KB] Chunks priorizados con precio: {len(priority_chunks)}")
+            
+            # DEBUG: Mostrar qué chunks se recuperaron
+            print("\n[DEBUG] Buscando 'PRECIO' en chunks...")
+            for i, chunk in enumerate(chunks[:10]):
+                content = chunk['content']['text']
+                if 'PRECIO' in content and 'iPhone 14 Pro' in content:
+                    print(f"[CHUNK {i+1}] ¡Encontrado iPhone 14 Pro con PRECIO! Score: {chunk.get('score', 0):.3f}")
+                    print(content[:500])
+                    print("="*80)
+            
+            if not chunks:
+                return jsonify({'response': 'No encontré información sobre ese producto.', 'sources': []})
+            
+            # 2. Construir contexto con chunks priorizados (limitado para controlar costos)
+            num_chunks_to_use = min(len(chunks), 10 if classification['needs_many_results'] else 8)
+            context = "\n\n".join([f"Documento {i+1}:\n{chunk['content']['text']}" 
+                                    for i, chunk in enumerate(chunks[:num_chunks_to_use])])
+            
+            print(f"[KB] Contexto construido: {len(context)} caracteres, {num_chunks_to_use} chunks")
+            
+            # 3. INVOKE: Generar respuesta con prompt optimizado según tipo de consulta
+            prompt = QueryHandler.enhance_prompt(message, classification, context)
+            
+            body = None
+            if 'nova' in model_id.lower():
+                body = json.dumps({
+                    "messages": [{"role": "user", "content": [{"text": prompt}]}],
+                    "inferenceConfig": {"max_new_tokens": 1000, "temperature": 0.0}
+                })
+            elif 'claude' in model_id.lower():
+                body = json.dumps({
+                    "anthropic_version": "bedrock-2023-05-31",
+                    "max_tokens": 1000,
+                    "temperature": 0.0,
+                    "messages": [{"role": "user", "content": prompt}]
+                })
+            else:
+                return jsonify({'error': f'Modelo {model_id} no soportado para KB'}), 400
+            
+            response = bedrock.invoke_model(modelId=invoke_model_id, body=body)
+            response_body = json.loads(response['body'].read())
+            
+            if 'nova' in model_id.lower():
+                reply = response_body['output']['message']['content'][0]['text']
+            elif 'claude' in model_id.lower():
+                reply = response_body['content'][0]['text']
+            else:
+                reply = "Error: modelo no reconocido"
+            
+            # VALIDACIÓN: Verificar que el precio mencionado existe en el contexto
+            import re
+            price_match = re.search(r'\$?([0-9,]+\.\d{2})\s*USD', reply)
+            if price_match:
+                mentioned_price = price_match.group(1)
+                if mentioned_price not in context:
+                    print(f"[ALERTA] Precio {mentioned_price} NO encontrado en contexto - posible alucinación")
+                    reply = "Lo siento, no puedo confirmar el precio exacto de ese producto. ¿Podrías especificar el modelo completo?"
+                else:
+                    print(f"[OK] Precio {mentioned_price} verificado en contexto")
+            
+            sources = [{'uri': chunk.get('location', {}).get('s3Location', {}).get('uri', 'unknown')} 
+                      for chunk in chunks[:3]]
+            
+            print(f"[KB] Respuesta generada, {len(sources)} fuentes")
             return jsonify({'response': reply, 'sources': sources})
         
         else:
             print("[DIRECTO] Sin Knowledge Base")
             print(f"Usando modelo: {invoke_model_id}")
             
+            # System prompt para modo directo
+            user_message = f"{SYSTEM_PROMPTS['direct_mode']}\n\nPregunta del cliente: {message}"
+            
             if 'claude' in model_id.lower():
                 body = json.dumps({
                     "anthropic_version": "bedrock-2023-05-31",
                     "max_tokens": 1000,
-                    "messages": [{"role": "user", "content": message}]
+                    "messages": [{"role": "user", "content": user_message}]
                 })
             elif 'nova' in model_id.lower():
                 body = json.dumps({
-                    "messages": [{"role": "user", "content": [{"text": message}]}],
+                    "messages": [{"role": "user", "content": [{"text": user_message}]}],
                     "inferenceConfig": {
-                        "max_new_tokens": 1000,
-                        "temperature": 0.7
+                        "max_new_tokens": MODEL_CONFIG["max_tokens"],
+                        "temperature": MODEL_CONFIG["temperature"]
                     }
                 })
             elif 'llama' in model_id.lower() or 'meta' in model_id.lower():
                 body = json.dumps({
-                    "prompt": message,
+                    "prompt": user_message,
                     "max_gen_len": 1000,
                     "temperature": 0.7
                 })
             elif 'titan' in model_id.lower():
                 body = json.dumps({
-                    "inputText": message,
+                    "inputText": user_message,
                     "textGenerationConfig": {
                         "maxTokenCount": 1000,
                         "temperature": 0.7
@@ -195,62 +254,46 @@ def kb_status():
 
 @app.route('/test-kb', methods=['GET'])
 def test_kb():
-    """Endpoint para probar la conexión con Knowledge Base"""
+    """Diagnóstico detallado de qué puede encontrar la KB"""
     try:
         kb_id = os.getenv('KNOWLEDGE_BASE_ID')
         if not kb_id:
             return jsonify({'error': 'KNOWLEDGE_BASE_ID no configurado'}), 400
         
-        # Obtener info de la KB usando bedrock client
-        bedrock_client = boto3.client(
-            service_name='bedrock-agent',
-            region_name=os.getenv('AWS_REGION', 'us-east-1'),
-            aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-            aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
-            aws_session_token=os.getenv('AWS_SESSION_TOKEN')
-        )
+        # Probar varias búsquedas
+        test_queries = [
+            'iPhone 14 Pro',
+            'iPhone 14',
+            'iPhone',
+            'producto',
+            'precio'
+        ]
         
-        try:
-            kb_info = bedrock_client.get_knowledge_base(knowledgeBaseId=kb_id)
-            print(f"[TEST-KB] KB Status: {kb_info['knowledgeBase']['status']}")
-        except Exception as e:
-            print(f"[TEST-KB] No se pudo obtener info de KB: {e}")
-        
-        # Intentar recuperar con una consulta simple
-        test_query = "celular"
-        print(f"[TEST-KB] Probando con query: '{test_query}'")
-        
-        response = bedrock_agent.retrieve(
-            knowledgeBaseId=kb_id,
-            retrievalQuery={'text': test_query}
-        )
-        
-        results = response.get('retrievalResults', [])
-        print(f"[TEST-KB] Resultados: {len(results)}")
-        
-        result_info = []
-        for idx, result in enumerate(results[:5]):
-            info = {
-                'index': idx + 1,
-                'score': result.get('score', 0),
-                'content_length': len(result.get('content', {}).get('text', '')),
-                'preview': result.get('content', {}).get('text', '')[:300]
+        results = {}
+        for query in test_queries:
+            response = bedrock_agent.retrieve(
+                knowledgeBaseId=kb_id,
+                retrievalQuery={'text': query},
+                retrievalConfiguration={
+                    'vectorSearchConfiguration': {
+                        'numberOfResults': 5
+                    }
+                }
+            )
+            
+            chunks = response.get('retrievalResults', [])
+            results[query] = {
+                'found': len(chunks),
+                'previews': [chunk['content']['text'][:150] + '...' for chunk in chunks[:3]]
             }
-            result_info.append(info)
-            print(f"[TEST-KB] Resultado {idx+1}: Score={info['score']:.3f}, Length={info['content_length']}")
-        
-        message = "KB vacía. Pasos: 1) Ve a AWS Console > Bedrock > Knowledge bases > CSQSSS8KH0, 2) Click en Data sources, 3) Click en Sync, 4) Espera 5-15 min" if len(results) == 0 else "KB funcionando correctamente"
         
         return jsonify({
             'kb_id': kb_id,
-            'query': test_query,
-            'total_results': len(results),
-            'results': result_info,
-            'message': message
+            'test_results': results,
+            'recommendation': 'Si todos muestran 0 resultados, necesitas SINCRONIZAR la KB en AWS Console'
         })
         
     except Exception as e:
-        print(f"[TEST-KB] Error: {e}")
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
