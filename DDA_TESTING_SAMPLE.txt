@@ -1,0 +1,440 @@
+DOCUMENTO DE DISEÑO DE ARQUITECTURA (DDA)
+SISTEMA DE GESTIÓN DE PEDIDOS E-COMMERCE
+Versión 2.0 - Enero 2025
+
+===================== RESUMEN EJECUTIVO =====================
+
+NOMBRE DEL SISTEMA: OrderFlow Platform
+PROPÓSITO: Sistema distribuido para gestión de pedidos de e-commerce con alta disponibilidad
+ARQUITECTURA: Microservicios event-driven con CQRS
+TECNOLOGÍAS PRINCIPALES: AWS, Kubernetes, Node.js, Python, PostgreSQL, Redis, Kafka
+
+===================== DECISIONES ARQUITECTÓNICAS =====================
+
+DECISIÓN #1: Arquitectura de Microservicios
+CONTEXTO: El sistema monolítico anterior presentaba problemas de escalabilidad y despliegues riesgosos que afectaban todo el sistema.
+ALTERNATIVAS CONSIDERADAS:
+- Monolito modular: Más simple pero no resuelve problemas de escalabilidad
+- Microservicios: Mayor complejidad operacional pero mejor escalabilidad
+- Serverless puro: Vendor lock-in y limitaciones de ejecución prolongada
+DECISIÓN: Arquitectura de microservicios con orquestación en Kubernetes
+JUSTIFICACIÓN:
+- Escalabilidad independiente por servicio (ej: servicio de pagos puede escalar más que inventario)
+- Despliegues independientes reducen riesgo
+- Equipos pueden trabajar en paralelo sin bloqueos
+- Tecnologías heterogéneas según necesidad de cada servicio
+TRADE-OFFS ACEPTADOS:
+- Mayor complejidad operacional (mitigado con Kubernetes y observabilidad)
+- Latencia de red entre servicios (mitigado con caché y optimización de llamadas)
+- Consistencia eventual en algunos flujos (aceptable para el negocio)
+
+DECISIÓN #2: Event-Driven Architecture con Apache Kafka
+CONTEXTO: Necesidad de desacoplar servicios y manejar picos de tráfico (Black Friday, Cyber Monday)
+ALTERNATIVAS CONSIDERADAS:
+- Llamadas síncronas REST: Simple pero acoplamiento fuerte
+- Amazon SQS: Más simple pero menos features para streaming
+- Apache Kafka: Más complejo pero mejor para event sourcing
+DECISIÓN: Apache Kafka como backbone de eventos
+JUSTIFICACIÓN:
+- Desacoplamiento total entre productores y consumidores
+- Replay de eventos para debugging y auditoría
+- Manejo de picos con buffering automático
+- Event sourcing para trazabilidad completa
+- Múltiples consumidores del mismo evento sin duplicación
+CONFIGURACIÓN:
+- 3 brokers en cluster para alta disponibilidad
+- Replication factor: 3
+- Retention: 7 días para eventos de negocio, 24 horas para eventos técnicos
+TRADE-OFFS:
+- Complejidad operacional de Kafka (mitigado con AWS MSK managed)
+- Consistencia eventual (aceptable, compensado con sagas)
+
+DECISIÓN #3: CQRS (Command Query Responsibility Segregation)
+CONTEXTO: Consultas complejas de reportes afectaban performance de escrituras transaccionales
+ALTERNATIVAS CONSIDERADAS:
+- CRUD tradicional: Simple pero no escala para reportes complejos
+- Read replicas: Ayuda pero no optimiza estructura de datos para lectura
+- CQRS completo: Complejidad pero optimización total
+DECISIÓN: CQRS con bases de datos separadas para escritura y lectura
+JUSTIFICACIÓN:
+- Escrituras optimizadas en PostgreSQL normalizado
+- Lecturas optimizadas en PostgreSQL desnormalizado + Redis
+- Escalabilidad independiente de lectura vs escritura
+- Modelos de datos específicos para cada caso de uso
+IMPLEMENTACIÓN:
+- Write DB: PostgreSQL con transacciones ACID
+- Read DB: PostgreSQL con vistas materializadas + Redis para caché
+- Sincronización: Eventos Kafka actualizan read models
+TRADE-OFFS:
+- Consistencia eventual en lecturas (aceptable, típicamente <2 segundos)
+- Complejidad de mantener dos modelos (mitigado con event handlers automatizados)
+
+DECISIÓN #4: PostgreSQL como Base de Datos Principal
+CONTEXTO: Necesidad de transacciones ACID para pedidos y pagos
+ALTERNATIVAS CONSIDERADAS:
+- MySQL: Similar pero menos features avanzados (JSON, full-text search)
+- MongoDB: Flexible pero sin transacciones multi-documento robustas
+- DynamoDB: Serverless pero limitaciones en queries complejos
+DECISIÓN: PostgreSQL 15 con extensiones (pgvector para búsquedas)
+JUSTIFICACIÓN:
+- Transacciones ACID críticas para consistencia financiera
+- JSON support para datos semi-estructurados
+- Full-text search nativo
+- Extensiones como pgvector para búsquedas semánticas
+- Madurez y ecosistema robusto
+CONFIGURACIÓN:
+- RDS PostgreSQL Multi-AZ para alta disponibilidad
+- Read replicas para consultas de reportes
+- Connection pooling con PgBouncer
+TRADE-OFFS:
+- Escalabilidad horizontal limitada vs NoSQL (mitigado con sharding por región)
+
+===================== COMPONENTES DEL SISTEMA =====================
+
+COMPONENTE: Order Service
+RESPONSABILIDAD: Gestión del ciclo de vida completo de pedidos
+TECNOLOGÍA: Node.js 20 + Express + TypeScript
+PUERTO: 3001
+BASE DE DATOS: PostgreSQL (orders schema)
+DEPENDENCIAS:
+- Payment Service (síncrono REST para validación)
+- Inventory Service (asíncrono Kafka para reserva)
+- Notification Service (asíncrono Kafka)
+ENDPOINTS PRINCIPALES:
+- POST /api/orders - Crear pedido
+- GET /api/orders/:id - Consultar pedido
+- PUT /api/orders/:id/cancel - Cancelar pedido
+EVENTOS PUBLICADOS:
+- order.created
+- order.confirmed
+- order.cancelled
+- order.completed
+ESCALABILIDAD: Auto-scaling 2-20 pods basado en CPU >70%
+CONSIDERACIONES:
+- Idempotencia en creación de pedidos (deduplicación por request-id)
+- Circuit breaker para llamadas a Payment Service
+- Timeout de 5 segundos en llamadas síncronas
+
+COMPONENTE: Payment Service
+RESPONSABILIDAD: Procesamiento de pagos y gestión de transacciones financieras
+TECNOLOGÍA: Python 3.11 + FastAPI
+PUERTO: 3002
+BASE DE DATOS: PostgreSQL (payments schema)
+INTEGRACIONES EXTERNAS:
+- Stripe API (tarjetas de crédito)
+- PayPal API (pagos alternativos)
+DEPENDENCIAS:
+- Fraud Detection Service (síncrono para validación)
+ENDPOINTS PRINCIPALES:
+- POST /api/payments/process - Procesar pago
+- GET /api/payments/:id - Consultar estado
+- POST /api/payments/:id/refund - Reembolso
+EVENTOS PUBLICADOS:
+- payment.processed
+- payment.failed
+- payment.refunded
+SEGURIDAD:
+- Encriptación de datos sensibles con AWS KMS
+- PCI-DSS compliance
+- Tokens en lugar de números de tarjeta
+- Rate limiting: 100 req/min por usuario
+ESCALABILIDAD: Auto-scaling 3-15 pods (mínimo 3 por compliance)
+
+COMPONENTE: Inventory Service
+RESPONSABILIDAD: Gestión de stock y disponibilidad de productos
+TECNOLOGÍA: Go 1.21 + Gin
+PUERTO: 3003
+BASE DE DATOS: PostgreSQL (inventory schema) + Redis (caché)
+DEPENDENCIAS:
+- Warehouse Management System (externo, REST)
+ENDPOINTS PRINCIPALES:
+- GET /api/inventory/:sku - Consultar disponibilidad
+- POST /api/inventory/reserve - Reservar stock
+- POST /api/inventory/release - Liberar reserva
+EVENTOS CONSUMIDOS:
+- order.created (reserva stock)
+- order.cancelled (libera stock)
+- payment.failed (libera stock)
+EVENTOS PUBLICADOS:
+- inventory.reserved
+- inventory.released
+- inventory.low_stock (alerta)
+CACHÉ:
+- Redis para disponibilidad en tiempo real
+- TTL: 30 segundos
+- Invalidación por eventos
+ESCALABILIDAD: Auto-scaling 2-10 pods
+CONSIDERACIONES:
+- Reservas con timeout de 15 minutos (libera automáticamente si no se confirma)
+- Optimistic locking para prevenir overselling
+
+COMPONENTE: Notification Service
+RESPONSABILIDAD: Envío de notificaciones multi-canal (email, SMS, push)
+TECNOLOGÍA: Node.js 20 + Bull (job queue)
+PUERTO: 3004
+BASE DE DATOS: Redis (job queue)
+INTEGRACIONES EXTERNAS:
+- SendGrid (email)
+- Twilio (SMS)
+- Firebase Cloud Messaging (push notifications)
+EVENTOS CONSUMIDOS:
+- order.created
+- order.confirmed
+- order.shipped
+- payment.processed
+- payment.failed
+ESCALABILIDAD: Auto-scaling 2-8 pods
+CONSIDERACIONES:
+- Reintentos exponenciales (3 intentos)
+- Dead letter queue para fallos persistentes
+- Rate limiting por proveedor externo
+- Templates en base de datos para personalización
+
+COMPONENTE: API Gateway
+RESPONSABILIDAD: Punto de entrada único, autenticación, rate limiting
+TECNOLOGÍA: Kong Gateway
+PUERTO: 80/443
+FUNCIONALIDADES:
+- Autenticación JWT
+- Rate limiting por usuario y endpoint
+- Request/response transformation
+- Logging y métricas
+- Circuit breaker
+CONFIGURACIÓN:
+- Rate limit global: 1000 req/min por IP
+- Rate limit autenticado: 5000 req/min por usuario
+- Timeout: 30 segundos
+- CORS habilitado para dominios autorizados
+
+===================== PATRONES DE DISEÑO IMPLEMENTADOS =====================
+
+PATRÓN: Saga Pattern (Orquestación)
+APLICACIÓN: Flujo de creación de pedido con múltiples servicios
+DESCRIPCIÓN:
+El Order Service actúa como orquestador de la saga de creación de pedido:
+1. Order Service crea pedido en estado PENDING
+2. Llama a Payment Service para procesar pago
+3. Si pago exitoso, publica evento order.payment_confirmed
+4. Inventory Service consume evento y reserva stock
+5. Si reserva exitosa, Order Service confirma pedido
+6. Si algún paso falla, ejecuta compensaciones (refund, liberar stock)
+BENEFICIOS:
+- Transacciones distribuidas sin 2PC
+- Visibilidad centralizada del flujo
+- Manejo explícito de fallos
+COMPONENTES INVOLUCRADOS: Order Service, Payment Service, Inventory Service
+
+PATRÓN: Circuit Breaker
+APLICACIÓN: Llamadas a servicios externos y entre microservicios
+DESCRIPCIÓN:
+Implementado con Resilience4j en servicios Java y circuit-breaker-js en Node.js
+CONFIGURACIÓN:
+- Threshold: 50% de fallos en ventana de 10 segundos
+- Open state duration: 30 segundos
+- Half-open state: 3 requests de prueba
+BENEFICIOS:
+- Previene cascada de fallos
+- Degradación elegante
+- Recuperación automática
+COMPONENTES: Todos los servicios que hacen llamadas externas
+
+PATRÓN: Event Sourcing (Parcial)
+APLICACIÓN: Order Service y Payment Service
+DESCRIPCIÓN:
+Todos los cambios de estado se almacenan como eventos inmutables:
+- Tabla events con: event_id, aggregate_id, event_type, payload, timestamp
+- Estado actual se reconstruye reproduciendo eventos
+- Auditoría completa de cambios
+BENEFICIOS:
+- Trazabilidad total
+- Debugging temporal (ver estado en cualquier momento)
+- Compliance y auditoría
+COMPONENTES: Order Service, Payment Service
+
+PATRÓN: API Gateway Pattern
+APLICACIÓN: Kong como punto de entrada único
+DESCRIPCIÓN:
+Todas las peticiones externas pasan por Kong Gateway que:
+- Autentica con JWT
+- Aplica rate limiting
+- Enruta a servicios internos
+- Agrega logging y métricas
+BENEFICIOS:
+- Seguridad centralizada
+- Simplifica clientes (un solo endpoint)
+- Políticas consistentes
+COMPONENTE: Kong Gateway
+
+===================== REQUISITOS NO FUNCIONALES =====================
+
+REQUISITO: Escalabilidad
+OBJETIVO: Soportar 10,000 pedidos/hora en operación normal, 50,000 en picos
+ESTRATEGIAS:
+- Auto-scaling horizontal de pods en Kubernetes
+- Caché distribuido con Redis
+- CQRS para separar lectura/escritura
+- Kafka para buffering de picos
+MÉTRICAS:
+- Latencia p95 < 500ms
+- Latencia p99 < 2 segundos
+MONITOREO: Prometheus + Grafana con alertas en latencia >1s
+
+REQUISITO: Disponibilidad
+OBJETIVO: 99.9% uptime (8.76 horas downtime/año)
+ESTRATEGIAS:
+- Multi-AZ deployment en AWS
+- PostgreSQL Multi-AZ con failover automático
+- Kafka cluster con 3 brokers
+- Health checks y auto-restart de pods
+- Circuit breakers para degradación elegante
+MONITOREO: Uptime checks cada 30 segundos, alertas en Slack/PagerDuty
+
+REQUISITO: Seguridad
+OBJETIVO: Protección de datos sensibles y compliance PCI-DSS
+ESTRATEGIAS:
+- Encriptación en tránsito (TLS 1.3)
+- Encriptación en reposo (AWS KMS)
+- Autenticación JWT con refresh tokens
+- Rate limiting para prevenir DDoS
+- Secrets en AWS Secrets Manager
+- Network policies en Kubernetes
+- Escaneo de vulnerabilidades con Snyk
+COMPLIANCE: PCI-DSS Level 1 para Payment Service
+
+REQUISITO: Performance
+OBJETIVO: Latencia p95 < 500ms para operaciones críticas
+ESTRATEGIAS:
+- Caché Redis para datos frecuentes
+- Connection pooling en bases de datos
+- Índices optimizados en PostgreSQL
+- CDN para assets estáticos
+- Compresión gzip en responses
+MÉTRICAS:
+- Order creation: p95 < 400ms
+- Payment processing: p95 < 800ms
+- Inventory check: p95 < 100ms
+MONITOREO: APM con Datadog, alertas en p95 >500ms
+
+REQUISITO: Observabilidad
+OBJETIVO: Visibilidad completa del sistema para debugging y optimización
+ESTRATEGIAS:
+- Logging estructurado (JSON) con correlation IDs
+- Métricas con Prometheus (RED: Rate, Errors, Duration)
+- Tracing distribuido con Jaeger
+- Dashboards en Grafana
+- Alertas proactivas en Slack/PagerDuty
+HERRAMIENTAS:
+- Logs: CloudWatch Logs + Elasticsearch
+- Métricas: Prometheus + Grafana
+- Tracing: Jaeger
+- APM: Datadog
+
+===================== INTEGRACIONES EXTERNAS =====================
+
+INTEGRACIÓN: Stripe Payment Gateway
+PROTOCOLO: REST API (HTTPS)
+FORMATO: JSON
+AUTENTICACIÓN: API Key (Bearer token)
+ENDPOINTS UTILIZADOS:
+- POST /v1/payment_intents - Crear intención de pago
+- GET /v1/payment_intents/:id - Consultar estado
+- POST /v1/refunds - Procesar reembolso
+FLUJO:
+1. Payment Service crea payment intent en Stripe
+2. Frontend confirma pago con Stripe.js
+3. Stripe envía webhook a Payment Service
+4. Payment Service valida webhook signature
+5. Actualiza estado de pago y publica evento
+MANEJO DE ERRORES:
+- Reintentos exponenciales (3 intentos)
+- Circuit breaker en 50% fallos
+- Fallback a PayPal si Stripe no disponible
+SEGURIDAD:
+- Webhook signature validation
+- IP whitelisting
+- Rate limiting: 100 req/s
+
+INTEGRACIÓN: SendGrid Email Service
+PROTOCOLO: REST API (HTTPS)
+FORMATO: JSON
+AUTENTICACIÓN: API Key
+ENDPOINTS:
+- POST /v3/mail/send - Enviar email
+FLUJO:
+1. Notification Service consume evento de Kafka
+2. Renderiza template de email
+3. Envía a SendGrid API
+4. Procesa webhook de delivery status
+CONFIGURACIÓN:
+- Templates en SendGrid
+- Personalización con variables dinámicas
+- Tracking de opens y clicks
+MANEJO DE ERRORES:
+- Reintentos: 3 intentos con backoff exponencial
+- Dead letter queue para fallos persistentes
+
+===================== DIAGRAMA DE ARQUITECTURA =====================
+
+[Frontend Web/Mobile]
+        |
+        v
+   [Kong Gateway] (80/443)
+        |
+        +-- [Order Service] (3001) --> PostgreSQL
+        |         |
+        |         +-- Kafka --> [Inventory Service] (3003) --> PostgreSQL + Redis
+        |         |
+        |         +-- Kafka --> [Notification Service] (3004) --> Redis
+        |
+        +-- [Payment Service] (3002) --> PostgreSQL
+                  |
+                  +-- Stripe API
+                  +-- PayPal API
+
+[Kafka Cluster] (3 brokers)
+[Redis Cluster] (caché + job queue)
+[PostgreSQL Multi-AZ] (write + read replicas)
+
+===================== STACK TECNOLÓGICO COMPLETO =====================
+
+LENGUAJES:
+- Node.js 20 + TypeScript (Order Service, Notification Service)
+- Python 3.11 (Payment Service)
+- Go 1.21 (Inventory Service)
+
+FRAMEWORKS:
+- Express.js (Node.js)
+- FastAPI (Python)
+- Gin (Go)
+
+BASES DE DATOS:
+- PostgreSQL 15 (principal)
+- Redis 7 (caché + job queue)
+
+MENSAJERÍA:
+- Apache Kafka 3.5 (AWS MSK)
+
+ORQUESTACIÓN:
+- Kubernetes 1.28 (AWS EKS)
+- Helm para deployments
+
+OBSERVABILIDAD:
+- Prometheus (métricas)
+- Grafana (dashboards)
+- Jaeger (tracing)
+- Datadog (APM)
+- CloudWatch Logs
+
+SEGURIDAD:
+- AWS KMS (encriptación)
+- AWS Secrets Manager
+- Kong Gateway (API Gateway)
+
+CI/CD:
+- GitHub Actions
+- ArgoCD (GitOps)
+- Docker + ECR
+
+INFRAESTRUCTURA:
+- AWS (cloud provider)
+- Terraform (IaC)
