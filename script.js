@@ -9,7 +9,7 @@ const USE_KB = true; // Knowledge Base activado
 let isLoading = false;
 
 function showWelcomeMessage() {
-    addMessage('¡Hola! Soy tu asistente virtual. Puedo ayudarte a comparar especificaciones y precios de productos. ¿Qué te gustaría saber?', 'assistant');
+    addMessage('¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte?', 'assistant');
 }
 
 function addMessage(content, role) {

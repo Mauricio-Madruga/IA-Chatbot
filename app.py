@@ -39,11 +39,7 @@ def chat():
         return jsonify({'error': 'Mensaje vacío'}), 400
     
     try:
-        # Convertir modelo Nova a ARN de inference profile
         invoke_model_id = model_id
-        if 'nova' in model_id.lower() and not model_id.startswith('arn:'):
-            region = os.getenv('AWS_REGION', 'us-east-1')
-            invoke_model_id = f'arn:aws:bedrock:{region}::foundation-model/{model_id}'
         
         if use_kb:
             print("[KB] Usando retrieve manual + invoke...")
@@ -73,34 +69,7 @@ def chat():
             chunks = retrieve_response.get('retrievalResults', [])
             print(f"[KB] Encontrados {len(chunks)} chunks")
             
-            # PRIORIZAR chunks con producto exacto + precio
-            product_keywords = message.lower().split()
-            priority_chunks = []
-            other_chunks = []
-            
-            for chunk in chunks:
-                content = chunk['content']['text']
-                # Si tiene PRECIO y menciona palabras clave de la pregunta
-                has_price = 'PRECIO' in content
-                has_keywords = any(kw in content.lower() for kw in product_keywords if len(kw) > 3)
-                
-                if has_price and has_keywords:
-                    priority_chunks.append(chunk)
-                else:
-                    other_chunks.append(chunk)
-            
-            # Reordenar: primero chunks con precio relevante
-            chunks = priority_chunks + other_chunks
-            print(f"[KB] Chunks priorizados con precio: {len(priority_chunks)}")
-            
-            # DEBUG: Mostrar qué chunks se recuperaron
-            print("\n[DEBUG] Buscando 'PRECIO' en chunks...")
-            for i, chunk in enumerate(chunks[:10]):
-                content = chunk['content']['text']
-                if 'PRECIO' in content and 'iPhone 14 Pro' in content:
-                    print(f"[CHUNK {i+1}] ¡Encontrado iPhone 14 Pro con PRECIO! Score: {chunk.get('score', 0):.3f}")
-                    print(content[:500])
-                    print("="*80)
+
             
             if not chunks:
                 return jsonify({'response': 'No encontré información sobre ese producto.', 'sources': []})
@@ -141,16 +110,7 @@ def chat():
             else:
                 reply = "Error: modelo no reconocido"
             
-            # VALIDACIÓN: Verificar que el precio mencionado existe en el contexto
-            import re
-            price_match = re.search(r'\$?([0-9,]+\.\d{2})\s*USD', reply)
-            if price_match:
-                mentioned_price = price_match.group(1)
-                if mentioned_price not in context:
-                    print(f"[ALERTA] Precio {mentioned_price} NO encontrado en contexto - posible alucinación")
-                    reply = "Lo siento, no puedo confirmar el precio exacto de ese producto. ¿Podrías especificar el modelo completo?"
-                else:
-                    print(f"[OK] Precio {mentioned_price} verificado en contexto")
+
             
             sources = [{'uri': chunk.get('location', {}).get('s3Location', {}).get('uri', 'unknown')} 
                       for chunk in chunks[:3]]
