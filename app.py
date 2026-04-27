@@ -49,7 +49,7 @@ def chat():
             
             # CLASIFICAR consulta para optimizar recuperación
             classification = QueryHandler.classify_query(message)
-            print(f"[QUERY] Tipo: {classification['type']}, Precio: {classification['is_price_query']}, Keywords: {classification['keywords']}")
+            print(f"[QUERY] Tipo: {classification['type']}, Keywords: {classification['keywords']}")
             
             # Obtener configuración de recuperación optimizada
             retrieval_config = QueryHandler.get_retrieval_config(classification)
@@ -222,11 +222,11 @@ def test_kb():
         
         # Probar varias búsquedas
         test_queries = [
-            'iPhone 14 Pro',
-            'iPhone 14',
-            'iPhone',
             'producto',
-            'precio'
+            'precio',
+            'disponible',
+            'características',
+            'recomendación'
         ]
         
         results = {}
